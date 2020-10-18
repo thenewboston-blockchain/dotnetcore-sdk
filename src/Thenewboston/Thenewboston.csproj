@@ -7,5 +7,9 @@
   <ItemGroup>
     <Folder Include="Bank\" />
     <Folder Include="Bank\Models\" />
+    <Folder Include="Common\" />
+    <Folder Include="Common\Models\" />
+    <Folder Include="Utils\" />
+    <Folder Include="Utils\Math\" />
   </ItemGroup>
 </Project>
