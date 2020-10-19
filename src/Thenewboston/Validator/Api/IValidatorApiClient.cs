@@ -9,7 +9,7 @@ namespace Thenewboston.Validator.Api
     public interface IValidatorApiClient
     {
         Task<IEnumerable<ValidatorAccount>> GetAccountsAsync();
-        Task<ValidatorAccountBalance> GetAccountBalance(string accountNumber);
-        Task<ValidatorAccountBalanceLock> GetAccountBalanceLock(string accountNumber);
+        Task<ValidatorAccountBalance> GetAccountBalanceAsync(string accountNumber);
+        Task<ValidatorAccountBalanceLock> GetAccountBalanceLockAsync(string accountNumber);
     }
 }
