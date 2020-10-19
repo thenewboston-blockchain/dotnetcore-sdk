@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Thenewboston.Accounts.Models;
 using Thenewboston.Common.Models;
 
 namespace Thenewboston.Bank.Models

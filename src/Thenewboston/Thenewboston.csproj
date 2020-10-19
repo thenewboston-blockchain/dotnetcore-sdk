@@ -11,10 +11,7 @@
     <Folder Include="Common\Models\" />
     <Folder Include="Utils\" />
     <Folder Include="Utils\Math\" />
-    <Folder Include="Accounts\" />
-    <Folder Include="Accounts\Models\" />
-    <Folder Include="Accounts\BankApi\" />
-    <Folder Include="Accounts\BankApi\Models\" />
+    <Folder Include="Bank\Api\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
