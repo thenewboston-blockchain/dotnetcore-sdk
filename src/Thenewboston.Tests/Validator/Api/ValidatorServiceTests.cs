@@ -106,7 +106,7 @@ namespace Thenewboston.Tests.Validator.Api
                 .Setup(x => x.GetAsync(It.Is<string>(s => s.Contains("balance") && !s.Contains("lock"))))
                 .Returns(Task.FromResult(getBalanceResponse));
             requestSender
-                .Setup(x => x.GetAsync(It.Is<string>(s => s.Contains("balanceLock"))))
+                .Setup(x => x.GetAsync(It.Is<string>(s => s.Contains("balance_lock"))))
                 .Returns(Task.FromResult(getBalanceLockResponse));
 
 
