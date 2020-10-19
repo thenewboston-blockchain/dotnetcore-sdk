@@ -7,22 +7,22 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Thenewboston.Bank.Api.Models;
 using Thenewboston.Bank.Models;
+using Thenewboston.Common.Http;
 
 namespace Thenewboston.Bank.Api
 {
     public class BankService : IBankApiClient
     {
-        private HttpClient _client;
+        private IHttpRequestSender _requestSender;
 
-        public BankService()
+        public BankService(IHttpRequestSender requestSender)
         {
-            _client = new HttpClient();
-            //TODO: set the client's base address
+            _requestSender = requestSender;
         }
 
         public async Task<IEnumerable<BankAccount>> GetAccountsAsync()
         {
-            var response = await _client.GetAsync("/accounts");
+            var response = await _requestSender.GetAsync("/accounts");
             var stringResult = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)
@@ -36,12 +36,12 @@ namespace Thenewboston.Bank.Api
             return result;
         }
 
-        public async Task<BankAccount> UpdateAccountAsync(AccountRequestModel account)
+        public async Task<BankAccount> UpdateAccountAsync(string accountNumber, AccountRequestModel account)
         {
             var jsonAccount = JsonConvert.SerializeObject(account);
             var httpContent = new StringContent(jsonAccount, Encoding.UTF8, "application/json");
 
-            var response = await _client.PatchAsync("/accounts", httpContent);
+            var response = await _requestSender.PatchAsync($"/accounts/{accountNumber}", httpContent);
             var stringResult = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)

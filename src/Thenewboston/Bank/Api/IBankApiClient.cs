@@ -9,6 +9,6 @@ namespace Thenewboston.Bank.Api
     public interface IBankApiClient
     {
         Task<IEnumerable<BankAccount>> GetAccountsAsync();
-        Task<BankAccount> UpdateAccountAsync(AccountRequestModel account);
+        Task<BankAccount> UpdateAccountAsync(string accountNumber, AccountRequestModel account);
     }
 }

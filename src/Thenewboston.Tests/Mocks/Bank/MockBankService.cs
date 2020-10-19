@@ -32,12 +32,12 @@ namespace Thenewboston.Tests.Mocks.Bank
             };
         }
 
-        public async Task<BankAccount> UpdateAccountAsync(AccountRequestModel account)
+        public async Task<BankAccount> UpdateAccountAsync(string accountNumber, AccountRequestModel account)
         {
             return new BankAccount
             {
                 Id = "64426fc5-b3ac-42fb-b75b-d5ccfcdc6872",
-                AccountNumber = "0cdd4ba04456ca169baca3d66eace869520c62fe84421329086e03d91a68acdb",
+                AccountNumber = accountNumber,
                 Created = DateTime.Now.AddDays(-3),
                 Modified = DateTime.Now,
                 Trust = account.Message.Trust.ToString()
