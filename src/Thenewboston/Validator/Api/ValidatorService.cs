@@ -32,7 +32,7 @@ namespace Thenewboston.Validator.Api
             return result;
         }
 
-        public async Task<ValidatorAccountBalance> GetAccountBalance(string accountNumber)
+        public async Task<ValidatorAccountBalance> GetAccountBalanceAsync(string accountNumber)
         {
             var response = await _requestSender.GetAsync($"/accounts/{accountNumber}/balance");
             var stringResult = await response.Content.ReadAsStringAsync();
@@ -48,7 +48,7 @@ namespace Thenewboston.Validator.Api
             return result;
         }
 
-        public async Task<ValidatorAccountBalanceLock> GetAccountBalanceLock(string accountNumber)
+        public async Task<ValidatorAccountBalanceLock> GetAccountBalanceLockAsync(string accountNumber)
         {
             var response = await _requestSender.GetAsync($"/accounts/{accountNumber}/balance_lock");
             var stringResult = await response.Content.ReadAsStringAsync();

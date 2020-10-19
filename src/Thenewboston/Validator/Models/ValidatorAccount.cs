@@ -9,14 +9,14 @@ namespace Thenewboston.Validator.Models
 
         public string AccountNumber { get; set; }
 
-        public BigDecimal Balance { get; set; }
+        public string Balance { get; set; }
 
         public string BalanceLock { get; set; }
     }
 
     public class ValidatorAccountBalance
     {
-        public BigDecimal Balance { get; set; }
+        public string Balance { get; set; }
     }
 
     public class ValidatorAccountBalanceLock
