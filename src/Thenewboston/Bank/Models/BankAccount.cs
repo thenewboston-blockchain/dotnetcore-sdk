@@ -7,7 +7,7 @@ namespace Thenewboston.Bank.Models
 
         public string AccountNumber { get; set; }
 
-        public float Trust { get; set; }
+        public string Trust { get; set; }
 
         public DateTime Created { get; set; }
 

@@ -9,7 +9,14 @@
     <Folder Include="Bank\Models\" />
     <Folder Include="Common\" />
     <Folder Include="Common\Models\" />
-    <Folder Include="Utils\" />
-    <Folder Include="Utils\Math\" />
+    <Folder Include="Bank\Api\" />
+    <Folder Include="Validator\" />
+    <Folder Include="Validator\Api\" />
+    <Folder Include="Validator\Models\" />
+    <Folder Include="Common\Math\" />
+    <Folder Include="Common\Http\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 </Project>
