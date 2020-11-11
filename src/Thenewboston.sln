@@ -1,9 +1,15 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thenewboston", "Thenewboston\Thenewboston.csproj", "{9186182F-C886-4F54-9D84-626B0075AEA2}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thenewboston", "Thenewboston\Thenewboston.csproj", "{9186182F-C886-4F54-9D84-626B0075AEA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thenewboston.Tests", "Thenewboston.Tests\Thenewboston.Tests.csproj", "{1FAFFC74-1394-43E6-9517-F62F698BDE6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thenewboston.Tests", "Thenewboston.Tests\Thenewboston.Tests.csproj", "{1FAFFC74-1394-43E6-9517-F62F698BDE6E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9CF0A852-0C14-4C67-9B26-A0EB7C15D82A}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,5 +25,11 @@ Global
 		{1FAFFC74-1394-43E6-9517-F62F698BDE6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FAFFC74-1394-43E6-9517-F62F698BDE6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FAFFC74-1394-43E6-9517-F62F698BDE6E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BFDC78DF-32C5-47A8-8C2D-58C0286D076D}
 	EndGlobalSection
 EndGlobal

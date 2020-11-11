@@ -13,14 +13,4 @@ namespace Thenewboston.Validator.Models
 
         public string BalanceLock { get; set; }
     }
-
-    public class ValidatorAccountBalance
-    {
-        public string Balance { get; set; }
-    }
-
-    public class ValidatorAccountBalanceLock
-    {
-        public string BalanceLock { get; set; }
-    }
 }
