@@ -17,10 +17,6 @@
   <ItemGroup>
     <Folder Include="Mocks\" />
     <Folder Include="Mocks\Bank\" />
-    <Folder Include="Bank\" />
-    <Folder Include="Bank\Api\" />
-    <Folder Include="Validator\" />
-    <Folder Include="Validator\Api\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Thenewboston\Thenewboston.csproj" />

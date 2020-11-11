@@ -32,7 +32,7 @@ namespace Thenewboston.Bank.Models
 
         public List<BankNode> Banks { get; set; }
 
-        public List<ValidatorNode> Validators { get; set; }
+        public List<NetworkValidator> Validators { get; set; }
 
         public List<BankConfirmationService> ConfirmationServices { get; set; }
     }

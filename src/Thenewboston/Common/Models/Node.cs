@@ -1,22 +1,28 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 namespace Thenewboston.Common.Models
 {
     public abstract class Node
     {
-        public string NetworkId { get; set; }
+        [JsonProperty(PropertyName = "node_identifier")]
+        public string NodeIdentifier { get; set; }
 
+        [JsonProperty(PropertyName = "account_number")]
         public string AccountNumber { get; set; }
 
-        public int TxFee { get; set; }
+        [JsonProperty(PropertyName = "default_transaction_fee")]
+        public int DefaultTransactionFee { get; set; }
 
+        [JsonProperty(PropertyName = "protocol")]
         public string Protocol { get; set; }
 
+        [JsonProperty(PropertyName = "ip_address")]
         public string IpAddress { get; set; }
 
-        public string Port { get; set; }
+        [JsonProperty(PropertyName = "port")]
+        public string Port { get; set; }   
 
-        public float Trust { get; set; }
-
+        [JsonProperty(PropertyName = "version")]
         public string Version { get; set; }
     }
 }

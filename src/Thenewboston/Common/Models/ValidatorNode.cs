@@ -1,16 +1,13 @@
-﻿using System;
-using System.Numerics;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Thenewboston.Common.Models
 {
-    public class ValidatorNode : Node
+    public class ValidatorNode : NetworkValidator
     {
-        public BigDecimal DailyRate { get; set; }
-
-        public string RootAccountFile { get; set; }
-
-        public string RootAccountFileHash { get; set; }
-
-        public string SeedBlockIdentifier { get; set; }
+        [JsonProperty(PropertyName = "trust")]
+        public string Trust { get; set; }
     }
 }
