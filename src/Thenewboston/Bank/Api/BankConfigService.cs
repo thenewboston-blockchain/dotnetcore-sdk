@@ -1,22 +1,21 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Threading.Tasks;
-using Thenewboston.Common.Api;
+using Newtonsoft.Json;
+using Thenewboston.Bank.Models;
 using Thenewboston.Common.Http;
 
-namespace Thenewboston.Validator.Api
+namespace Thenewboston.Bank.Api.Models
 {
-    public class NodeConfigService : INodeConfigService
+    public class BankConfigService : IBankConfigService
     {
-
         private readonly IHttpRequestSender _requestSender;
 
-        public NodeConfigService(IHttpRequestSender requestSender)
+        public BankConfigService(IHttpRequestSender requestSender)
         {
             _requestSender = requestSender;
         }
 
-        public async Task<T> GetConfigAsync<T>()
+        public async Task<BankConfig> GetBankConfigAsync()
         {
             var response = await _requestSender.GetAsync("/config");
 
@@ -34,7 +33,7 @@ namespace Thenewboston.Validator.Api
                 throw new Exception();
             }
 
-            var result = JsonConvert.DeserializeObject<T>(stringResult);
+            var result = JsonConvert.DeserializeObject<BankConfig>(stringResult);
 
             return result;
         }
