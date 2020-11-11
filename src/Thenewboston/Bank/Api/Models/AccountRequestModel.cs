@@ -10,9 +10,4 @@ namespace Thenewboston.Bank.Api.Models
 
         public string Signature { get; set; }
     }
-
-    public class Message
-    {
-        public double Trust { get; set; }
-    }
 }

@@ -5,6 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Bank\Models\" />
+    <Folder Include="Common\" />
+    <Folder Include="Common\Models\" />
     <Folder Include="Validator\Api\" />
     <Folder Include="Common\Math\" />
     <Folder Include="Common\Http\" />
