@@ -14,7 +14,7 @@ using Xunit;
 namespace Thenewboston.Tests.Bank.Api
 {
     
-    public class BankTransactionTests
+    public class GetAllTransactionsAsync
     {
         [Fact]
         
