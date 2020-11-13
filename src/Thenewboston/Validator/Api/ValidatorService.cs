@@ -19,21 +19,19 @@ namespace Thenewboston.Validator.Api
         public async Task<IEnumerable<ValidatorAccount>> GetAccountsAsync()
         {
             var response = await _requestSender.GetAsync("/accounts");
-            var stringResult = string.Empty; 
 
-            if (response.IsSuccessStatusCode)
-            {
-                stringResult = await response.Content.ReadAsStringAsync();
-                if(string.IsNullOrEmpty(stringResult))
-                {
-                    //TODO: Create specific exception
-                    throw new Exception(); 
-                }
-            }
-            else
+            if (!response.IsSuccessStatusCode)
             {
                 //TODO: create specific exception
                 throw new Exception();
+            }
+
+            var stringResult = await response.Content.ReadAsStringAsync();
+
+            if (string.IsNullOrEmpty(stringResult))
+            {
+                //TODO: Create specific exception
+                throw new Exception(); 
             }
 
             var result = JsonConvert.DeserializeObject<IEnumerable<ValidatorAccount>>(stringResult);
@@ -44,18 +42,16 @@ namespace Thenewboston.Validator.Api
         public async Task<ValidatorAccountBalance> GetAccountBalanceAsync(string accountNumber)
         {
             var response = await _requestSender.GetAsync($"/accounts/{accountNumber}/balance");
-            var stringResult = string.Empty; 
 
-            if (response.IsSuccessStatusCode)
+            if(!response.IsSuccessStatusCode)
             {
-                stringResult = await response.Content.ReadAsStringAsync();
-                if (string.IsNullOrEmpty(stringResult))
-                {
-                    //TODO: create specific exception
-                    throw new Exception(); 
-                }
+                //TODO: create specific exception
+                throw new Exception();
             }
-            else
+
+            var stringResult = await response.Content.ReadAsStringAsync();
+
+            if(string.IsNullOrEmpty(stringResult))
             {
                 //TODO: create specific exception
                 throw new Exception();
@@ -69,18 +65,16 @@ namespace Thenewboston.Validator.Api
         public async Task<ValidatorAccountBalanceLock> GetAccountBalanceLockAsync(string accountNumber)
         {
             var response = await _requestSender.GetAsync($"/accounts/{accountNumber}/balance_lock");
-            var stringResult = string.Empty; 
 
-            if (response.IsSuccessStatusCode)
+            if (!response.IsSuccessStatusCode)
             {
-                stringResult = await response.Content.ReadAsStringAsync();
-                if (string.IsNullOrEmpty(stringResult))
-                {
-                    //TODO: create specific exception
-                    throw new Exception();
-                }
+                //TODO: create specific exception
+                throw new Exception();
             }
-            else
+
+            var stringResult = await response.Content.ReadAsStringAsync();
+            
+            if (string.IsNullOrEmpty(stringResult))
             {
                 //TODO: create specific exception
                 throw new Exception();
@@ -90,6 +84,5 @@ namespace Thenewboston.Validator.Api
 
             return result;
         }
-
     }
 }

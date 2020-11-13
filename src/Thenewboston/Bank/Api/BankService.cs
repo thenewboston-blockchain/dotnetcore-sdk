@@ -23,18 +23,16 @@ namespace Thenewboston.Bank.Api
         public async Task<IEnumerable<BankAccount>> GetAccountsAsync()
         {
             var response = await _requestSender.GetAsync("/accounts");
-            var stringResult = string.Empty; 
 
-            if (response.IsSuccessStatusCode)
+            if (!response.IsSuccessStatusCode)
             {
-                stringResult = await response.Content.ReadAsStringAsync();
-                if (string.IsNullOrEmpty(stringResult))
-                {
-                    //TODO: create specific exception
-                    throw new Exception();
-                }
+                //TODO: create specific exception
+                throw new Exception();
             }
-            else
+
+            var stringResult = await response.Content.ReadAsStringAsync();
+
+            if (string.IsNullOrEmpty(stringResult))
             {
                 //TODO: create specific exception
                 throw new Exception();
@@ -51,21 +49,19 @@ namespace Thenewboston.Bank.Api
             var httpContent = new StringContent(jsonAccount, Encoding.UTF8, "application/json");
 
             var response = await _requestSender.PatchAsync($"/accounts/{accountNumber}", httpContent);
-            var stringResult = string.Empty; 
 
             if (response.IsSuccessStatusCode)
             {
-                stringResult = await response.Content.ReadAsStringAsync()?? string.Empty;
-                if (string.IsNullOrEmpty(stringResult))
-                {
-                    //TODO: create specific exception 
-                    throw new Exception();
-                }
+                //TODO: create specific exception 
+                throw new Exception();
             }
-            else
+
+            var stringResult = await response.Content.ReadAsStringAsync()?? string.Empty;
+
+            if (string.IsNullOrEmpty(stringResult))
             {
-                //TODO: create specific exception
-                throw new Exception(); 
+                //TODO: create specific exception 
+                throw new Exception();
             }
 
             var result = JsonConvert.DeserializeObject<BankAccount>(stringResult);
