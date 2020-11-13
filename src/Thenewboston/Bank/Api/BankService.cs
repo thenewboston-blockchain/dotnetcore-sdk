@@ -50,7 +50,7 @@ namespace Thenewboston.Bank.Api
 
             var response = await _requestSender.PatchAsync($"/accounts/{accountNumber}", httpContent);
 
-            if (response.IsSuccessStatusCode)
+            if (!response.IsSuccessStatusCode)
             {
                 //TODO: create specific exception 
                 throw new Exception();
