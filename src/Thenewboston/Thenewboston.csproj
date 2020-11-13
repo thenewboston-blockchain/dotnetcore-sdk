@@ -5,8 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Bank\Models\" />
-    <Folder Include="Common\" />
     <Folder Include="Common\Models\" />
     <Folder Include="Common\Math\" />
     <Folder Include="Common\Http\" />
