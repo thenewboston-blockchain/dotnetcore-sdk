@@ -5,7 +5,7 @@ using Thenewboston.Common.Models;
 
 namespace Thenewboston.Bank.Models
 {
-    public class BankDTO
+    public class BankResponseModel
     {
         [JsonProperty(PropertyName = "account_number")]
         public string AccountNumber { get; set; }

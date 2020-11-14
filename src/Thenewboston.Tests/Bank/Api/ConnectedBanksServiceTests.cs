@@ -13,9 +13,8 @@ using Xunit;
 
 namespace Thenewboston.Tests.Bank.Api
 {
-    public class BankBankServiceTests
+    public class ConnectedBanksServiceTests
     {
-
         public class GetBanksAsync
         {
             [Fact]
@@ -27,9 +26,9 @@ namespace Thenewboston.Tests.Bank.Api
                     Next = null,
                     Previous = null,
                     Results =
-                    new List<BankDTO>
+                    new List<BankResponseModel>
                     {
-                        new BankDTO
+                        new BankResponseModel
                         {
                             AccountNumber = "5e12967707909e62b2bb2036c209085a784fabbc3deccefee70052b6181c8ed8",
                             IpAddress = "83.168.1.232",
@@ -40,7 +39,7 @@ namespace Thenewboston.Tests.Bank.Api
                             DefaultTransactionFee = 1,
                             Trust = "100.00"
                         },
-                        new BankDTO
+                        new BankResponseModel
                         {
                             AccountNumber = "db1a9ac3c356ab744ab4ad5256bb86c2f6dfaa7c1aece1f026a08dbd8c7178f2",
                             IpAddress = "74.124.1.68",
@@ -54,7 +53,7 @@ namespace Thenewboston.Tests.Bank.Api
                     }
                 };
 
-                var service = BuildGetBanksAsyncBankServiceMock(expectedResponseModel);
+                var service = BuildGetBanksAsyncConnectedBanksServiceMock(expectedResponseModel);
 
                 var banks = await service.GetBanksAsync();
 
@@ -69,7 +68,7 @@ namespace Thenewboston.Tests.Bank.Api
             [Fact]
             public async void UpdatedBankIsReturned()
             {
-                var expectedBankDTO = new BankDTO
+                var expectedBank = new BankResponseModel
                 {
                     AccountNumber = "5e12967707909e62b2bb2036c209085a784fabbc3deccefee70052b6181c8ed8",
                     IpAddress = "83.168.1.232",
@@ -81,25 +80,25 @@ namespace Thenewboston.Tests.Bank.Api
                     Trust = "53.22"
                 };
 
-                var service = BuildUpdateBankAsyncBankServiceMock(expectedBankDTO);
+                var service = BuildUpdateBankAsyncConnectedBanksServiceMock(expectedBank);
 
-                var bankDTO = await service.UpdateBankAsync(
+                var bank = await service.UpdateBankAsync(
                     "d5356888dc9303e44ce52b1e06c3165a7759b9df1e6a6dfbd33ee1c3df1ab4d1",
                     new RequestModel());
 
-                var expectedBankDTOStr = JsonConvert.SerializeObject(expectedBankDTO);
-                var actualBankDTOStr = JsonConvert.SerializeObject(bankDTO);
-                Assert.Equal(expectedBankDTOStr, actualBankDTOStr);
+                var expectedBankStr = JsonConvert.SerializeObject(expectedBank);
+                var actualBankStr = JsonConvert.SerializeObject(bank);
+                Assert.Equal(expectedBankStr, actualBankStr);
             }
         }
 
-        public static IBankBankService BuildGetBanksAsyncBankServiceMock(ResponseModel expectedResponseModel)
+        public static IConnectedBanksService BuildGetBanksAsyncConnectedBanksServiceMock(ResponseModel expectedResponseModel)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             response.Content = new StringContent(JsonConvert.SerializeObject(expectedResponseModel), Encoding.UTF8, "application/json");
 
             var requestSenderMock = new Mock<IHttpRequestSender>();
-            IBankBankService service = new BankBankService(requestSenderMock.Object);
+            IConnectedBanksService service = new ConnectedBanksService(requestSenderMock.Object);
 
             requestSenderMock
                 .Setup(x => x.GetAsync("/banks"))
@@ -108,13 +107,13 @@ namespace Thenewboston.Tests.Bank.Api
             return service;
         }
 
-        public static IBankBankService BuildUpdateBankAsyncBankServiceMock(BankDTO expectedBankDTO)
+        public static IConnectedBanksService BuildUpdateBankAsyncConnectedBanksServiceMock(BankResponseModel expectedBank)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK);
-            response.Content = new StringContent(JsonConvert.SerializeObject(expectedBankDTO), Encoding.UTF8, "application/json");
+            response.Content = new StringContent(JsonConvert.SerializeObject(expectedBank), Encoding.UTF8, "application/json");
 
             var requestSenderMock = new Mock<IHttpRequestSender>();
-            IBankBankService service = new BankBankService(requestSenderMock.Object);
+            IConnectedBanksService service = new ConnectedBanksService(requestSenderMock.Object);
 
             requestSenderMock
                 .Setup(x => x.PatchAsync(It.IsAny<string>(), It.IsAny<StringContent>()))

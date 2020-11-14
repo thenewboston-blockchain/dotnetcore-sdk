@@ -10,11 +10,11 @@ using Thenewboston.Common.Http;
 
 namespace Thenewboston.Bank.Api
 {
-    public class BankBankService : IBankBankService
+    public class ConnectedBanksService : IConnectedBanksService
     {
         private readonly IHttpRequestSender _requestSender;
 
-        public BankBankService(IHttpRequestSender requestSender)
+        public ConnectedBanksService(IHttpRequestSender requestSender)
         {
             _requestSender = requestSender;
         }
@@ -42,7 +42,7 @@ namespace Thenewboston.Bank.Api
             return result;
         }
 
-        public async Task<BankDTO> UpdateBankAsync(string nodeIdentifier, RequestModel payload)
+        public async Task<BankResponseModel> UpdateBankAsync(string nodeIdentifier, RequestModel payload)
         {
             var jsonPayload = JsonConvert.SerializeObject(payload);
             var httpContent = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
@@ -63,7 +63,7 @@ namespace Thenewboston.Bank.Api
                 throw new Exception();
             }
 
-            var result = JsonConvert.DeserializeObject<BankDTO>(stringResult);
+            var result = JsonConvert.DeserializeObject<BankResponseModel>(stringResult);
 
             return result;
         }

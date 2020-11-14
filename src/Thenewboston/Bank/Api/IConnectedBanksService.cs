@@ -4,9 +4,9 @@ using Thenewboston.Common.Api.Models;
 
 namespace Thenewboston.Bank.Api.Models
 {
-    public interface IBankBankService
+    public interface IConnectedBanksService
     {
         Task<ResponseModel> GetBanksAsync();
-        Task<BankDTO> UpdateBankAsync(string nodeIdentifier, RequestModel payload);
+        Task<BankResponseModel> UpdateBankAsync(string nodeIdentifier, RequestModel payload);
     }
 }
