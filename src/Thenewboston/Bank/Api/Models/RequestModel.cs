@@ -2,7 +2,7 @@
 
 namespace Thenewboston.Bank.Api.Models
 {
-    public class AccountRequestModel
+    public class RequestModel
     {
         public Message Message { get; set; }
 
