@@ -7,7 +7,7 @@ using Thenewboston.Bank.Models;
 
 namespace Thenewboston.Tests.Mocks.Bank
 {
-    public class MockBankService : IBankApiClient
+    public class MockBankService : IAccountsService
     {
         public async Task<IEnumerable<BankAccount>> GetAccountsAsync()
         {

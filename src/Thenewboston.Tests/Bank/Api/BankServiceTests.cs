@@ -14,14 +14,14 @@ using Thenewboston.Bank.Api.Models;
 
 namespace Thenewboston.Tests.Bank.Api
 {
-    public class BankServiceTests
+    public class AccountsServiceTests
     {
         public class GetAccountsAsync
         {
             [Fact]
             public async void ListOfAccountsIsReturned()
             {
-                var service = BuildBankServiceMock();
+                var service = BuildAccountsServiceMock();
 
                 var accounts = await service.GetAccountsAsync();
 
@@ -35,7 +35,7 @@ namespace Thenewboston.Tests.Bank.Api
             [Fact]
             public async void UpdatedAccountIsReturned()
             {
-                var service = BuildBankServiceMock();
+                var service = BuildAccountsServiceMock();
 
                 var account = await service.UpdateAccountAsync(
                     "a29baa6ba36f6db707f8f8dacfa82d5e8a28fa616e8cc96cf6d7790f551d79f2",
@@ -45,7 +45,7 @@ namespace Thenewboston.Tests.Bank.Api
             }
         }
 
-        public static BankService BuildBankServiceMock()
+        public static AccountsService BuildAccountsServiceMock()
         {
             var requestSender = new Mock<IHttpRequestSender>();
 
@@ -92,7 +92,7 @@ namespace Thenewboston.Tests.Bank.Api
                 .Setup(x => x.PatchAsync(It.IsAny<string>(), It.IsAny<StringContent>()))
                 .Returns(Task.FromResult(updateResponse));
 
-            var bankService = new BankService(requestSender.Object);
+            var bankService = new AccountsService(requestSender.Object);
             return bankService;
         }
     }

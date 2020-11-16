@@ -53,13 +53,13 @@ namespace Thenewboston.Tests.Bank.Api
             Assert.Equal(expectedConfigStr, actualConfigStr);
         }
 
-        public static IBankConfigService BuildBankConfigServiceMock(BankConfig expectedConfig)
+        public static IConfigService BuildBankConfigServiceMock(BankConfig expectedConfig)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             response.Content = new StringContent(JsonConvert.SerializeObject(expectedConfig), Encoding.UTF8, "application/json");
 
             var requestSenderMock = new Mock<IHttpRequestSender>();
-            IBankConfigService service = new BankConfigService(requestSenderMock.Object);
+            IConfigService service = new ConfigService(requestSenderMock.Object);
             requestSenderMock
                 .Setup(x => x.GetAsync("/config"))
                 .ReturnsAsync(response);

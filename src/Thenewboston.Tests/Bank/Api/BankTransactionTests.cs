@@ -29,7 +29,7 @@ namespace Thenewboston.Tests.Bank.Api
 
         }
 
-        public static BankTransactionService BuildBankTransactionMock()
+        public static TransactionsService BuildBankTransactionMock()
         {
             var requestSender = new Mock<IHttpRequestSender>();
             
@@ -75,7 +75,7 @@ namespace Thenewboston.Tests.Bank.Api
                 .Setup(x => x.GetAsync(It.IsAny<string>()))
                 .Returns(Task.FromResult(getAllResponse));
             
-            var bankTransactionService = new BankTransactionService(requestSender.Object);
+            var bankTransactionService = new TransactionsService(requestSender.Object);
             return bankTransactionService;
 
         }
