@@ -85,13 +85,13 @@ namespace Thenewboston.Tests.Validator.Api
             Assert.Equal(expectedConfigStr, actualConfigStr);
         }
 
-        public static IValidatorConfigService BuildValidatorConfigServiceMock(ValidatorConfig expectedConfig)
+        public static IConfigService BuildValidatorConfigServiceMock(ValidatorConfig expectedConfig)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             response.Content = new StringContent(JsonConvert.SerializeObject(expectedConfig), Encoding.UTF8, "application/json");
 
             var requestSenderMock = new Mock<IHttpRequestSender>();
-            IValidatorConfigService service = new ValidatorConfigService(requestSenderMock.Object);
+            IConfigService service = new ConfigService(requestSenderMock.Object);
             requestSenderMock
                 .Setup(x => x.GetAsync("/config"))
                 .ReturnsAsync(response);

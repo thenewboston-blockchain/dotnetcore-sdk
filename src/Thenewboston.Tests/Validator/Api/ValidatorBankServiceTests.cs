@@ -64,13 +64,13 @@ namespace Thenewboston.Tests.Validator.Api
             }
         }
 
-        public static IValidatorBankService BuildGetBanksAsyncValidatorServiceMock(ResponseModel expectedResponseModel)
+        public static IConnectedBanksService BuildGetBanksAsyncValidatorServiceMock(ResponseModel expectedResponseModel)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             response.Content = new StringContent(JsonConvert.SerializeObject(expectedResponseModel), Encoding.UTF8, "application/json");
 
             var requestSenderMock = new Mock<IHttpRequestSender>();
-            IValidatorBankService service = new ValidatorBankService(requestSenderMock.Object);
+            IConnectedBanksService service = new ConnectedBanksService(requestSenderMock.Object);
 
             requestSenderMock
                 .Setup(x => x.GetAsync("/banks"))
