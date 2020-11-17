@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 using Thenewboston.Common.Http;
 using Thenewboston.Common.Models;
 
-namespace Thenewboston.Validator.Api
+namespace Thenewboston.Bank.Api
 {
     public class ValidatorService : IValidatorService
     {
