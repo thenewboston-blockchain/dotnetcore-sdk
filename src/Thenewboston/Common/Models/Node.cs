@@ -11,7 +11,7 @@ namespace Thenewboston.Common.Models
         public string AccountNumber { get; set; }
 
         [JsonProperty(PropertyName = "default_transaction_fee")]
-        public int DefaultTransactionFee { get; set; }
+        public decimal? DefaultTransactionFee { get; set; }
 
         [JsonProperty(PropertyName = "protocol")]
         public string Protocol { get; set; }
@@ -20,7 +20,7 @@ namespace Thenewboston.Common.Models
         public string IpAddress { get; set; }
 
         [JsonProperty(PropertyName = "port")]
-        public string Port { get; set; }   
+        public int? Port { get; set; }   
 
         [JsonProperty(PropertyName = "version")]
         public string Version { get; set; }

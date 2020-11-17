@@ -60,7 +60,7 @@ namespace Thenewboston.Tests.Validator.Api
                     RootAccountFileHash = "cc9390cc579dc8a99a1f34c1bea5d54a0f45b27ecee7e38662f0cd853f76744d",
                     SeedBlockIdentifier = "",
                     DailyConfirmationRate = null,
-                    Trust = "100.00"
+                    Trust = 100.00M
                 },
                 AccountNumber = "d5c4db217c032ef21df84be4201766b73e623940ce6d95aedf153da2f8c38626",
                 IpAddress = "54.67.72.197",

@@ -32,7 +32,7 @@ namespace Thenewboston.Tests.Bank.Api
                     RootAccountFileHash = "0f775023bee79884fbd9a90a76c5eacfee38a8ca52735f7ab59dab63a75cbee1",
                     SeedBlockIdentifier = "",
                     DailyConfirmationRate = null,
-                    Trust = "100.00"
+                    Trust = 100.00M
                 },
                 AccountNumber = "dfddf07ec15cbf363ecb52eedd7133b70b3ec896b488460bcecaba63e8e36be5",
                 IpAddress = "143.110.137.54",

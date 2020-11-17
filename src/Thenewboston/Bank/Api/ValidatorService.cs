@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Thenewboston.Bank.Api.Models;
 using Thenewboston.Common.Http;
 using Thenewboston.Common.Models;
 
@@ -36,6 +38,32 @@ namespace Thenewboston.Bank.Api
             }
 
             var result = JsonConvert.DeserializeObject<IEnumerable<ValidatorNode>>(stringResult);
+
+            return result;
+        }
+
+        public async Task<ValidatorNode> PatchValidatorAsync(string nodeIdentifier, RequestModel trust)
+        {
+            var jsonTrust = JsonConvert.SerializeObject(trust);
+            var httpContent = new StringContent(jsonTrust, Encoding.UTF8, "application/json");
+
+            var response = await _requestSender.PatchAsync($"/validators/{nodeIdentifier}", httpContent);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                //TODO: create specific exception
+                throw new Exception();
+            }
+
+            var stringResult = await response.Content.ReadAsStringAsync();
+
+            if (string.IsNullOrEmpty(stringResult))
+            {
+                //TODO: create specific exception
+                throw new Exception();
+            }
+
+            var result = JsonConvert.DeserializeObject<ValidatorNode>(stringResult);
 
             return result;
         }

@@ -8,6 +8,6 @@ namespace Thenewboston.Common.Models
     public class ValidatorNode : NetworkValidator
     {
         [JsonProperty(PropertyName = "trust")]
-        public string Trust { get; set; }
+        public decimal Trust { get; set; }
     }
 }
