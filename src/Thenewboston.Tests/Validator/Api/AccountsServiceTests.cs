@@ -13,7 +13,7 @@ using Xunit;
 
 namespace Thenewboston.Tests.Validator.Api
 {
-    public class ValidatorServiceTests
+    public class AccountsServiceTests
     {
         public class GetAccountsAsync
         {

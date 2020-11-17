@@ -12,7 +12,7 @@ using Xunit;
 
 namespace Thenewboston.Tests.Bank.Api
 {
-    public class BankConfigServiceTests
+    public class ConfigServiceTests
     {
         [Fact]
         public async void BankConfigIsReturned()

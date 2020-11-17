@@ -7,11 +7,11 @@ using Thenewboston.Bank.Models;
 
 namespace Thenewboston.Tests.Mocks.Bank
 {
-    public class MockBankService : IAccountsService
+    public class MockAccountsService : IAccountsService
     {
-        public async Task<IEnumerable<BankAccount>> GetAccountsAsync()
+        public Task<IEnumerable<BankAccount>> GetAccountsAsync()
         {
-            return new List<BankAccount>
+            return Task.FromResult(new List<BankAccount>
             {
                 new BankAccount
                 {
@@ -29,19 +29,19 @@ namespace Thenewboston.Tests.Mocks.Bank
                     Modified = DateTime.Now,
                     Trust = "94.61"
                 }
-            };
+            } as IEnumerable<BankAccount>);
         }
 
-        public async Task<BankAccount> UpdateAccountAsync(string accountNumber, RequestModel account)
+        public Task<BankAccount> UpdateAccountAsync(string accountNumber, RequestModel account)
         {
-            return new BankAccount
+            return Task.FromResult(new BankAccount
             {
                 Id = "64426fc5-b3ac-42fb-b75b-d5ccfcdc6872",
                 AccountNumber = accountNumber,
                 Created = DateTime.Now.AddDays(-3),
                 Modified = DateTime.Now,
                 Trust = account.Message.Trust.ToString()
-            };
+            });
         }
     }
 }

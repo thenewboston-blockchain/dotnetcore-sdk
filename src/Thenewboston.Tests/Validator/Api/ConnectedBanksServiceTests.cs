@@ -12,7 +12,7 @@ using Xunit;
 
 namespace Thenewboston.Tests.Validator.Api
 {
-    public class ValidatorBankServiceTests
+    public class ConnectedBanksServiceTests
     {
         public class GetBanksAsync
         {
