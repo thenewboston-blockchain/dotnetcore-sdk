@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Thenewboston.Bank.Models;
+using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
 
-namespace Thenewboston.Bank.Api.Models
+namespace Thenewboston.Validator.Api
 {
-    public class BankConfigService : IBankConfigService
+    public class ConnectedBanksService : IConnectedBanksService
     {
         private readonly IHttpRequestSender _requestSender;
 
-        public BankConfigService(IHttpRequestSender requestSender)
+        public ConnectedBanksService(IHttpRequestSender requestSender)
         {
             _requestSender = requestSender;
         }
 
-        public async Task<BankConfig> GetBankConfigAsync()
+        public async Task<ResponseModel> GetBanksAsync()
         {
-            var response = await _requestSender.GetAsync("/config");
+            var response = await _requestSender.GetAsync("/banks");
 
             if (!response.IsSuccessStatusCode)
             {
@@ -33,7 +33,7 @@ namespace Thenewboston.Bank.Api.Models
                 throw new Exception();
             }
 
-            var result = JsonConvert.DeserializeObject<BankConfig>(stringResult);
+            var result = JsonConvert.DeserializeObject<ResponseModel>(stringResult);
 
             return result;
         }

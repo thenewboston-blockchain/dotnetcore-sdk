@@ -7,11 +7,11 @@ using Thenewboston.Validator.Models;
 
 namespace Thenewboston.Validator.Api
 {
-    public class ValidatorService : IValidatorApiClient
+    public class AccountsService : IAccountsService
     {
         private readonly IHttpRequestSender _requestSender;
 
-        public ValidatorService(IHttpRequestSender requestSender)
+        public AccountsService(IHttpRequestSender requestSender)
         {
             _requestSender = requestSender;
         }

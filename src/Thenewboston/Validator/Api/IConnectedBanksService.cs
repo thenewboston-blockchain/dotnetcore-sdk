@@ -3,7 +3,7 @@ using Thenewboston.Common.Api.Models;
 
 namespace Thenewboston.Validator.Api
 {
-    public interface IValidatorBankService
+    public interface IConnectedBanksService
     {
         Task<ResponseModel> GetBanksAsync();
     }

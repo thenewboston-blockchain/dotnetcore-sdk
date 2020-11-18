@@ -3,7 +3,7 @@ using Thenewboston.Validator.Models;
 
 namespace Thenewboston.Validator.Api
 {
-    public interface IValidatorConfigService
+    public interface IConfigService
     {
         Task<ValidatorConfig> GetValidatorConfigAsync();
     }

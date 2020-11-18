@@ -13,26 +13,29 @@ using Xunit;
 
 namespace Thenewboston.Tests.Bank.Api
 {
-    
-    public class GetAllTransactionsAsync
+    public class TransactionsServiceTests
     {
-        [Fact]
-        
-        public async void ListOfTransactionsIsReturned()
+
+        public class GetAllTransactionsAsync
         {
-            var service = BuildBankTransactionMock();
+            [Fact]
 
-            var transactions = await service.GetAllTransactionsAsync();
-            
-            Assert.Equal(2,transactions.Count());
-            Assert.Equal("2484fbf3-2054-48a4-a1ce-66333cd15470",transactions.ElementAt(0).Id);
+            public async void ListOfTransactionsIsReturned()
+            {
+                var service = BuildBankTransactionMock();
 
+                var transactions = await service.GetAllTransactionsAsync();
+
+                Assert.Equal(2, transactions.Count());
+                Assert.Equal("2484fbf3-2054-48a4-a1ce-66333cd15470", transactions.ElementAt(0).Id);
+
+            }
         }
 
-        public static BankTransactionService BuildBankTransactionMock()
+        public static TransactionsService BuildBankTransactionMock()
         {
             var requestSender = new Mock<IHttpRequestSender>();
-            
+
             var listResult = new List<BankTransaction>
             {
                 new BankTransaction
@@ -67,18 +70,17 @@ namespace Thenewboston.Tests.Bank.Api
 
                 }
             };
-            
+
             var getAllResponse = new HttpResponseMessage(System.Net.HttpStatusCode.OK);
-            getAllResponse.Content = new StringContent(JsonConvert.SerializeObject(listResult),Encoding.UTF8,"application/json");
+            getAllResponse.Content = new StringContent(JsonConvert.SerializeObject(listResult), Encoding.UTF8, "application/json");
 
             requestSender
                 .Setup(x => x.GetAsync(It.IsAny<string>()))
                 .Returns(Task.FromResult(getAllResponse));
-            
-            var bankTransactionService = new BankTransactionService(requestSender.Object);
+
+            var bankTransactionService = new TransactionsService(requestSender.Object);
             return bankTransactionService;
 
         }
     }
-    
 }
