@@ -6,11 +6,11 @@ using Thenewboston.Validator.Models;
 
 namespace Thenewboston.Validator.Api
 {
-    public class ValidatorConfigService : IValidatorConfigService
+    public class ConfigService : IConfigService
     {
         private readonly IHttpRequestSender _requestSender;
 
-        public ValidatorConfigService(IHttpRequestSender requestSender)
+        public ConfigService(IHttpRequestSender requestSender)
         {
             _requestSender = requestSender;
         }

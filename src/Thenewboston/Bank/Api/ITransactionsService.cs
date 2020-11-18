@@ -4,7 +4,7 @@ using Thenewboston.Bank.Models;
 
 namespace Thenewboston.Bank.Api
 {
-    public interface IBankTransactions
+    public interface ITransactionsService
     {
         Task<IEnumerable<BankTransaction>> GetAllTransactionsAsync();
     }
