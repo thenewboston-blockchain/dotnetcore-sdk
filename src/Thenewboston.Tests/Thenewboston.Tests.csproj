@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Mocks\" />
-    <Folder Include="Mocks\Bank\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Thenewboston\Thenewboston.csproj" />
   </ItemGroup>
 </Project>
