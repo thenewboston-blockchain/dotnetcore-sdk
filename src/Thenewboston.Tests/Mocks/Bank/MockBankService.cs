@@ -32,7 +32,7 @@ namespace Thenewboston.Tests.Mocks.Bank
             };
         }
 
-        public async Task<BankAccount> UpdateAccountAsync(string accountNumber, AccountRequestModel account)
+        public async Task<BankAccount> UpdateAccountAsync(string accountNumber, RequestModel account)
         {
             return new BankAccount
             {

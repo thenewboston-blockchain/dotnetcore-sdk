@@ -39,7 +39,7 @@ namespace Thenewboston.Tests.Bank.Api
 
                 var account = await service.UpdateAccountAsync(
                     "a29baa6ba36f6db707f8f8dacfa82d5e8a28fa616e8cc96cf6d7790f551d79f2",
-                    new AccountRequestModel());
+                    new RequestModel());
 
                 Assert.Equal("a29baa6ba36f6db707f8f8dacfa82d5e8a28fa616e8cc96cf6d7790f551d79f2", account.AccountNumber);
             }
