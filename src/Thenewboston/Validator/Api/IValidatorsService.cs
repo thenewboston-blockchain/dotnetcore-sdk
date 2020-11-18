@@ -6,7 +6,7 @@ using Thenewboston.Common.Models;
 
 namespace Thenewboston.Validator.Api
 {
-    public interface IValidatorService
+    public interface IValidatorsService
     {
         Task<IEnumerable<ValidatorNode>> GetAllValidatorsAsync();
     }

@@ -8,11 +8,11 @@ using Thenewboston.Common.Models;
 
 namespace Thenewboston.Validator.Api
 {
-    public class ValidatorService : IValidatorService
+    public class ValidatorsService : IValidatorsService
     {
         private readonly IHttpRequestSender _requestSender;
 
-        public ValidatorService(IHttpRequestSender requestSender)
+        public ValidatorsService(IHttpRequestSender requestSender)
         {
             _requestSender = requestSender;
         }

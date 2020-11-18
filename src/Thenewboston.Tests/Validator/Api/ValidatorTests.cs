@@ -28,7 +28,7 @@ namespace Thenewboston.Tests.Validator.Api
 
         }
 
-        public static ValidatorService BuildBankTransactionMock()
+        public static ValidatorsService BuildBankTransactionMock()
         {
             var requestSender = new Mock<IHttpRequestSender>();
 
@@ -73,7 +73,7 @@ namespace Thenewboston.Tests.Validator.Api
                 .Setup(x => x.GetAsync(It.IsAny<string>()))
                 .Returns(Task.FromResult(getAllResponse));
 
-            var bankTransactionService = new ValidatorService(requestSender.Object);
+            var bankTransactionService = new ValidatorsService(requestSender.Object);
             return bankTransactionService;
 
         }

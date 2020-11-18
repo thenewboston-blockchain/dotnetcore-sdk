@@ -23,7 +23,7 @@ namespace Thenewboston.Validator.Models
         public string Version { get; set; }
 
         [JsonProperty(PropertyName = "default_transaction_fee")]
-        public int DefaultTransactionFee { get; set; }
+        public string DefaultTransactionFee { get; set; }
         
         [JsonProperty(PropertyName = "confirmation_expiration")]
         public string ConfirmationExpiration { get; set; }

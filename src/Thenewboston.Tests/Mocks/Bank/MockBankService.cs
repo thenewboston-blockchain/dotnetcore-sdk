@@ -19,7 +19,7 @@ namespace Thenewboston.Tests.Mocks.Bank
                     AccountNumber = "4d2ec91f37bc553bc538e91195669b666e26b2ea3e4e31507e38102a758d4f86",
                     Created = DateTime.Now.AddDays(-3),
                     Modified = DateTime.Now,
-                    Trust = 99.73M
+                    Trust = "99.73"
                 },
                  new BankAccount
                 {
@@ -27,7 +27,7 @@ namespace Thenewboston.Tests.Mocks.Bank
                     AccountNumber = "a29baa6ba36f6db707f8f8dacfa82d5e8a28fa616e8cc96cf6d7790f551d79f2",
                     Created = DateTime.Now.AddDays(-3),
                     Modified = DateTime.Now,
-                    Trust = 94.61M
+                    Trust = "94.61"
                 }
             };
         }
@@ -40,7 +40,7 @@ namespace Thenewboston.Tests.Mocks.Bank
                 AccountNumber = accountNumber,
                 Created = DateTime.Now.AddDays(-3),
                 Modified = DateTime.Now,
-                Trust = (decimal?)account.Message.Trust
+                Trust = account.Message.Trust.ToString()
             };
         }
     }

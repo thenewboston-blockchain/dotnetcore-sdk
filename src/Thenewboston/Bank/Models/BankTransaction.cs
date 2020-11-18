@@ -13,7 +13,7 @@ namespace Thenewboston.Bank.Models
 
         public string Recipient { get; set; }
 
-        public decimal Amount { get; set; }
+        public string Amount { get; set; }
         
     }
 }

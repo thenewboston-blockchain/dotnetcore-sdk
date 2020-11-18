@@ -35,7 +35,7 @@ namespace Thenewboston.Tests.Validator.Api
                             Port = 80,
                             Protocol = "http",
                             Version = "v1.0",
-                            DefaultTransactionFee = 1,
+                            DefaultTransactionFee = "1.0000000000000000",
                             ConfirmationExpiration = null,
                             Trust = "100.00"
                         },
@@ -47,7 +47,7 @@ namespace Thenewboston.Tests.Validator.Api
                             Port = 80,
                             Protocol = "http",
                             Version = "v1.0",
-                            DefaultTransactionFee = 2,
+                            DefaultTransactionFee = "2.0000000000000000",
                             ConfirmationExpiration = null,
                             Trust = "98.32"
                         }

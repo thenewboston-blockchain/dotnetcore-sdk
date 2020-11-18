@@ -47,7 +47,7 @@ namespace Thenewboston.Tests.Bank.Api
                         Sender = "4abccf4280ef61aad6f176a103933a42ed7dbf90d55e7912f404a704ede06f41",
                         Signature = "c4a7696abc0f1e760a0c87d2a8db1faec060f99a77bf5f669a69dfdb301150db8fdaa2863a5d4a4e75be626ff56aecdbfea034283b1eb5a8e0196fd35f541b0b"
                     },
-                    Amount = 1,
+                    Amount = "1.0000000000000000",
                     Recipient = "2e86f48216567302527b69eae6c6a188097ed3a9741f43cc3723e570cf47644c"
                 },
                 new BankTransaction
@@ -62,7 +62,7 @@ namespace Thenewboston.Tests.Bank.Api
                         Sender = "4abccf4280ef61aad6f176a103933a42ed7dbf90d55e7912f404a704ede06f41",
                         Signature = "c4a7696abc0f1e760a0c87d2a8db1faec060f99a77bf5f669a69dfdb301150db8fdaa2863a5d4a4e75be626ff56aecdbfea034283b1eb5a8e0196fd35f541b0b"
                     },
-                    Amount = 498,
+                    Amount = "498.0000000000000000",
                     Recipient = "802f34851bdfa1572f11fc4e58e44be3c01e92399bc4ba8d81e98b02254a0106"
 
                 }

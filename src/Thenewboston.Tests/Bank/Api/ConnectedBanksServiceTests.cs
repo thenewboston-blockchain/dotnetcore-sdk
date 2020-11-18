@@ -36,7 +36,7 @@ namespace Thenewboston.Tests.Bank.Api
                             Port = 80,
                             Protocol = "http",
                             Version = "v1.0",
-                            DefaultTransactionFee = 1,
+                            DefaultTransactionFee = "1.0000000000000000",
                             Trust = "100.00"
                         },
                         new BankResponseModel
@@ -47,7 +47,7 @@ namespace Thenewboston.Tests.Bank.Api
                             Port = 80,
                             Protocol = "http",
                             Version = "v1.0",
-                            DefaultTransactionFee = 2,
+                            DefaultTransactionFee = "2.0000000000000000",
                             Trust = "98.32"
                         }
                     }
@@ -76,7 +76,7 @@ namespace Thenewboston.Tests.Bank.Api
                     Port = 80,
                     Protocol = "http",
                     Version = "v1.0",
-                    DefaultTransactionFee = 1,
+                    DefaultTransactionFee = "1.0000000000000000",
                     Trust = "53.22"
                 };
 
