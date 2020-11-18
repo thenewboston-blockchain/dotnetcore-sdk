@@ -1,0 +1,33 @@
+name: Publish NuGet package
+
+on: 
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+  
+    runs-on: ubuntu-latest
+    env:
+      working-directory: ./src
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.301
+        
+    - name: Install dependencies
+      run: dotnet restore
+      working-directory: ${{env.working-directory}}
+      
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+      working-directory: ${{env.working-directory}}
+      
+    - name: Create NuGet Package
+      run: dotnet pack -c Release /p:Version=${{ github.event.release.tag_name }} /p:PackageReleaseNotes="Please refer to https://github.com/thenewboston-developers/dotnetcore-sdk/releases/tag/${{ github.event.release.tag_name }}"
+      working-directory: ${{env.working-directory}}/Thenewboston
+      
+    - name: Publish 
+      run: dotnet nuget push ${{env.working-directory}}/Thenewboston/bin/Release/Thenewboston.${{ github.event.release.tag_name }}.nupkg --api-key ${{ secrets.API_KEY_NUGET }} --source https://api.nuget.org/v3/index.json --no-symbols true
