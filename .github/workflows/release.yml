@@ -1,4 +1,4 @@
-name: Publish NuGet package
+name: Create and Publish package
 
 on: 
   push:
@@ -11,7 +11,9 @@ jobs:
     env:
       working-directory: ./src
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
+
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
@@ -25,9 +27,35 @@ jobs:
       run: dotnet build --configuration Release --no-restore
       working-directory: ${{env.working-directory}}
       
+    - name: Zip the Build
+      run: zip -r Thenewboston.${{ github.event.release.tag_name }} ${{env.working-directory}}/Thenewboston/bin/Release/netcoreapp3.1/
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: For release details please refer to https://github.com/thenewboston-developers/dotnetcore-sdk/releases/tag/${{ github.event.release.tag_name }}"
+        draft: false
+        prerelease: false
+
+    - name: Upload Release Asset
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./Thenewboston.${{ github.event.release.tag_name }}.zip
+        asset_name: Thenewboston.${{ github.event.release.tag_name }}.zip
+        asset_content_type: application/zip
+
     - name: Create NuGet Package
       run: dotnet pack -c Release /p:Version=${{ github.event.release.tag_name }} /p:PackageReleaseNotes="Please refer to https://github.com/thenewboston-developers/dotnetcore-sdk/releases/tag/${{ github.event.release.tag_name }}"
       working-directory: ${{env.working-directory}}/Thenewboston
       
-    - name: Publish 
+    - name: Publish NuGet Package
       run: dotnet nuget push ${{env.working-directory}}/Thenewboston/bin/Release/Thenewboston.${{ github.event.release.tag_name }}.nupkg --api-key ${{ secrets.API_KEY_NUGET }} --source https://api.nuget.org/v3/index.json --no-symbols true
