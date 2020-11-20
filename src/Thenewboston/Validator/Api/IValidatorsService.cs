@@ -9,6 +9,6 @@ namespace Thenewboston.Validator.Api
 {
     public interface IValidatorsService
     {
-        Task<ResponseModel> GetAllValidatorsAsync();
+        Task<PaginatedResponseModel> GetAllValidatorsAsync();
     }
 }

@@ -18,7 +18,7 @@ namespace Thenewboston.Validator.Api
             _requestSender = requestSender;
         }
 
-        public async Task<ResponseModel> GetAllValidatorsAsync()
+        public async Task<PaginatedResponseModel> GetAllValidatorsAsync()
         {
             var response = await _requestSender.GetAsync("/validators");
 
@@ -36,7 +36,7 @@ namespace Thenewboston.Validator.Api
                 throw new Exception();
             }
 
-            var result = JsonConvert.DeserializeObject<ResponseModel>(stringResult);
+            var result = JsonConvert.DeserializeObject<PaginatedResponseModel>(stringResult);
 
             return result;
         }
