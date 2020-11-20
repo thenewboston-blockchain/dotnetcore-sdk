@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace Thenewboston.Common.Api.Models
 {
-    public class PaginatedResponseModel
+    public class ResponseModel
     {
         [JsonProperty(PropertyName = "count")]
         public int Count { get; set; }

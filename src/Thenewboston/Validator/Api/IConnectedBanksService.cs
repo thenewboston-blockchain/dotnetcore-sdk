@@ -5,6 +5,6 @@ namespace Thenewboston.Validator.Api
 {
     public interface IConnectedBanksService
     {
-        Task<PaginatedResponseModel> GetBanksAsync();
+        Task<ResponseModel> GetBanksAsync();
     }
 }

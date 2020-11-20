@@ -15,7 +15,7 @@ namespace Thenewboston.Validator.Api
             _requestSender = requestSender;
         }
 
-        public async Task<PaginatedResponseModel> GetBanksAsync()
+        public async Task<ResponseModel> GetBanksAsync()
         {
             var response = await _requestSender.GetAsync("/banks");
 
@@ -33,7 +33,7 @@ namespace Thenewboston.Validator.Api
                 throw new Exception();
             }
 
-            var result = JsonConvert.DeserializeObject<PaginatedResponseModel>(stringResult);
+            var result = JsonConvert.DeserializeObject<ResponseModel>(stringResult);
 
             return result;
         }
