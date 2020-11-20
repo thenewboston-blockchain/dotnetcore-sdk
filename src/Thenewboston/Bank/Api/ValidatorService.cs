@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Thenewboston.Bank.Api.Models;
+using Thenewboston.Bank.Models;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
 using Thenewboston.Common.Models;
@@ -43,7 +44,7 @@ namespace Thenewboston.Bank.Api
             return result;
         }
 
-        public async Task<ValidatorNode> PatchValidatorAsync(string nodeIdentifier, RequestModel trust)
+        public async Task<BankValidator> PatchValidatorAsync(string nodeIdentifier, RequestModel trust)
         {
             var jsonTrust = JsonConvert.SerializeObject(trust);
             var httpContent = new StringContent(jsonTrust, Encoding.UTF8, "application/json");
@@ -64,7 +65,7 @@ namespace Thenewboston.Bank.Api
                 throw new Exception();
             }
 
-            var result = JsonConvert.DeserializeObject<ValidatorNode>(stringResult);
+            var result = JsonConvert.DeserializeObject<BankValidator>(stringResult);
 
             return result;
         }

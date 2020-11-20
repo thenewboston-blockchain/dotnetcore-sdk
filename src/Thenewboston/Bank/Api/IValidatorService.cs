@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Thenewboston.Bank.Api.Models;
+using Thenewboston.Bank.Models;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Models;
 
@@ -12,7 +13,7 @@ namespace Thenewboston.Bank.Api
     {
         Task<ResponseModel> GetAllValidatorsAsync();
 
-        Task<ValidatorNode> PatchValidatorAsync(string nodeIdentifier, RequestModel trust);
+        Task<BankValidator> PatchValidatorAsync(string nodeIdentifier, RequestModel trust);
 
     }
 }
