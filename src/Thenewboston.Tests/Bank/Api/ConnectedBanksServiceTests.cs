@@ -20,7 +20,7 @@ namespace Thenewboston.Tests.Bank.Api
             [Fact]
             public async void ListOfBanksIsReturned()
             {
-                ResponseModel expectedResponseModel = new ResponseModel
+                PaginatedResponseModel expectedResponseModel = new PaginatedResponseModel
                 {
                     Count = 2,
                     Next = null,
@@ -92,7 +92,7 @@ namespace Thenewboston.Tests.Bank.Api
             }
         }
 
-        public static IConnectedBanksService BuildGetBanksAsyncConnectedBanksServiceMock(ResponseModel expectedResponseModel)
+        public static IConnectedBanksService BuildGetBanksAsyncConnectedBanksServiceMock(PaginatedResponseModel expectedResponseModel)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             response.Content = new StringContent(JsonConvert.SerializeObject(expectedResponseModel), Encoding.UTF8, "application/json");
