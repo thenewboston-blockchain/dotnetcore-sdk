@@ -11,7 +11,7 @@ namespace Thenewboston.Bank.Api
 {
     public interface IValidatorService
     {
-        Task<ResponseModel> GetAllValidatorsAsync();
+        Task<PaginatedResponseModel> GetAllValidatorsAsync();
 
         Task<BankValidator> PatchValidatorAsync(string nodeIdentifier, RequestModel trust);
 
