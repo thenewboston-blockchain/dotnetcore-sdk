@@ -1,3 +1,4 @@
+
 # Thenewboston .NET Core SDK
 ## Library Description
 This is a .NET Core SDK for **thenewboston**, which will be available cross-platoform. The library itself will solely contain the domain and data layers of **thenewboston**. The presentation layer will be the responsibility of the host application.
@@ -59,7 +60,7 @@ This section provides quick links to exceptions that you may encounter while usi
 Description 
 ## Namespaces
 	 Thenewboston.Bank.Api
-         Thenewboston.Bank.Models
+	 Thenewboston.Bank.Models
 	 
 ## AccountsService
 ##  ConfigService
@@ -67,22 +68,38 @@ Description
 ##  TransactionService
 ##  ValidatorService
 ##  Bank Exceptions (BNK)
+|Exception|Class|Thrown From|Description  |
+|--|--|--|--|
+|BNK001|AccountsService|SampleMethod()|Sample Description|
+|BNK002|ConfigService|SampleMethod()|Sample Description|
+|BNK003|Unassigned|Reserved for future codification|
+
+
 
 # Common
 Description
 ## Namespace
-	 Thenewboston.Common.Api
-         Thenewboston.Common.Models
+	Thenewboston.Common.Api
+	Thenewboston.Common.Models
 ## Common Exceptions (CMN)
+|Exception|Class|Thrown From|Description  |
+|--|--|--|--|
+|CMN001|Unassigned |Reserved for future codification||
+
 
 # Validator
 Description
 ## Namespace
-	 Thenewboston.Validator.Api
-         Thenewboston.Validator.Models
+	Thenewboston.Validator.Api
+	Thenewboston.Validator.Models
 ## AccountsService
 ## ConfigService
 ## ConnectedBankService
 ## TransactionService
 ## ValidatorService
 ## Validator Exceptions (VLD)
+|Exception|Class|Thrown From|Description  |
+|--|--|--|--|
+|VLD001|AccountsService|SampleMethod()|Sample Description|
+|VLD002|ConfigService|SampleMethod()|Sample Description|
+|VLD003|Unassigned|Reserved for future codification|
