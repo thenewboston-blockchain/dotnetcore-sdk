@@ -59,7 +59,7 @@ This section provides quick links to exceptions that you may encounter while usi
 Description 
 ## Namespaces
 	 Thenewboston.Bank.Api
-   Thenewboston.Bank.Models
+         Thenewboston.Bank.Models
 	 
 ## AccountsService
 ##  ConfigService
@@ -72,14 +72,14 @@ Description
 Description
 ## Namespace
 	 Thenewboston.Common.Api
-   Thenewboston.Common.Models
+         Thenewboston.Common.Models
 ## Common Exceptions (CMN)
 
 # Validator
 Description
 ## Namespace
 	 Thenewboston.Validator.Api
-   Thenewboston.Validator.Models
+         Thenewboston.Validator.Models
 ## AccountsService
 ## ConfigService
 ## ConnectedBankService
