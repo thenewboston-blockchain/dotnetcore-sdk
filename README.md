@@ -1,4 +1,4 @@
-# ThewNewBoston .NET Core SDK
+# TheNewBoston .NET Core SDK
 
 This is a .NET Core SDK for **thenewboston**, which will be available cross-platoform. The library itself will solely contain the domain and data layers of **thenewboston**. The presentation layer will be the responsibility of the host application.
 
