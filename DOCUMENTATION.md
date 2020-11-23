@@ -22,7 +22,7 @@ You can use the Nuget package manager in Visual Studio or the Nuget CLI by insta
 For projects that support  adding  a Nuget reference you may paste the following into your .csproj file:
 
 	<ItemGroup>
-	    <PackageReference Include="Thenewboston" Version="0.0.0" />
+	    <PackageReference Include="Thenewboston" Version="1.0.0" />
 	</ItemGroup>
 
 ## SDK References
