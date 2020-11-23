@@ -6,7 +6,7 @@ using Thenewboston.Bank.Models;
 
 namespace Thenewboston.Bank.Api
 {
-    public interface IBankApiClient
+    public interface IAccountsService
     {
         Task<IEnumerable<BankAccount>> GetAccountsAsync();
         Task<BankAccount> UpdateAccountAsync(string accountNumber, RequestModel account);

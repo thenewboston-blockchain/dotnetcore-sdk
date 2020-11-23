@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,21 +8,22 @@ using Thenewboston.Bank.Api.Models;
 using Thenewboston.Bank.Models;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
+using Thenewboston.Common.Models;
 
 namespace Thenewboston.Bank.Api
 {
-    public class ConnectedBanksService : IConnectedBanksService
+    public class ValidatorService : IValidatorService
     {
         private readonly IHttpRequestSender _requestSender;
 
-        public ConnectedBanksService(IHttpRequestSender requestSender)
+        public ValidatorService(IHttpRequestSender requestSender)
         {
             _requestSender = requestSender;
         }
 
-        public async Task<PaginatedResponseModel> GetBanksAsync()
+        public async Task<PaginatedResponseModel> GetAllValidatorsAsync()
         {
-            var response = await _requestSender.GetAsync("/banks");
+            var response = await _requestSender.GetAsync("/validators");
 
             if (!response.IsSuccessStatusCode)
             {
@@ -42,16 +44,16 @@ namespace Thenewboston.Bank.Api
             return result;
         }
 
-        public async Task<BankResponseModel> UpdateBankAsync(string nodeIdentifier, RequestModel payload)
+        public async Task<BankValidator> PatchValidatorAsync(string nodeIdentifier, RequestModel trust)
         {
-            var jsonPayload = JsonConvert.SerializeObject(payload);
-            var httpContent = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+            var jsonTrust = JsonConvert.SerializeObject(trust);
+            var httpContent = new StringContent(jsonTrust, Encoding.UTF8, "application/json");
 
-            var response = await _requestSender.PatchAsync($"/banks/{nodeIdentifier}", httpContent);
+            var response = await _requestSender.PatchAsync($"/validators/{nodeIdentifier}", httpContent);
 
             if (!response.IsSuccessStatusCode)
             {
-                //TODO: create specific exception 
+                //TODO: create specific exception
                 throw new Exception();
             }
 
@@ -59,11 +61,11 @@ namespace Thenewboston.Bank.Api
 
             if (string.IsNullOrEmpty(stringResult))
             {
-                //TODO: create specific exception 
+                //TODO: create specific exception
                 throw new Exception();
             }
 
-            var result = JsonConvert.DeserializeObject<BankResponseModel>(stringResult);
+            var result = JsonConvert.DeserializeObject<BankValidator>(stringResult);
 
             return result;
         }

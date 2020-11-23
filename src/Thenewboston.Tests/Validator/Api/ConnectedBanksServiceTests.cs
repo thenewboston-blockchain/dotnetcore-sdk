@@ -12,14 +12,14 @@ using Xunit;
 
 namespace Thenewboston.Tests.Validator.Api
 {
-    public class ValidatorBankServiceTests
+    public class ConnectedBanksServiceTests
     {
         public class GetBanksAsync
         {
             [Fact]
             public async void ListOfBanksIsReturned()
             {
-                ResponseModel expectedResponseModel = new ResponseModel
+                PaginatedResponseModel expectedResponseModel = new PaginatedResponseModel
                 {
                     Count = 2,
                     Next = null,
@@ -64,13 +64,13 @@ namespace Thenewboston.Tests.Validator.Api
             }
         }
 
-        public static IValidatorBankService BuildGetBanksAsyncValidatorServiceMock(ResponseModel expectedResponseModel)
+        public static IConnectedBanksService BuildGetBanksAsyncValidatorServiceMock(PaginatedResponseModel expectedResponseModel)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             response.Content = new StringContent(JsonConvert.SerializeObject(expectedResponseModel), Encoding.UTF8, "application/json");
 
             var requestSenderMock = new Mock<IHttpRequestSender>();
-            IValidatorBankService service = new ValidatorBankService(requestSenderMock.Object);
+            IConnectedBanksService service = new ConnectedBanksService(requestSenderMock.Object);
 
             requestSenderMock
                 .Setup(x => x.GetAsync("/banks"))

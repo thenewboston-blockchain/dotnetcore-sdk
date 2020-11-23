@@ -13,7 +13,7 @@ using Xunit;
 
 namespace Thenewboston.Tests.Validator.Api
 {
-    public class ValidatorServiceTests
+    public class AccountsServiceTests
     {
         public class GetAccountsAsync
         {
@@ -55,7 +55,7 @@ namespace Thenewboston.Tests.Validator.Api
             }
         }
 
-        public static ValidatorService BuildValidatorServiceMock()
+        public static AccountsService BuildValidatorServiceMock()
         {
             var requestSender = new Mock<IHttpRequestSender>();
 
@@ -111,7 +111,7 @@ namespace Thenewboston.Tests.Validator.Api
 
 
 
-            var validatorService = new ValidatorService(requestSender.Object);
+            var validatorService = new AccountsService(requestSender.Object);
             return validatorService;
         }
     }

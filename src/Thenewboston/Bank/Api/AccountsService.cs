@@ -11,11 +11,11 @@ using Thenewboston.Common.Http;
 
 namespace Thenewboston.Bank.Api
 {
-    public class BankService : IBankApiClient
+    public class AccountsService : IAccountsService
     {
         private IHttpRequestSender _requestSender;
 
-        public BankService(IHttpRequestSender requestSender)
+        public AccountsService(IHttpRequestSender requestSender)
         {
             _requestSender = requestSender;
         }
