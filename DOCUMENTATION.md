@@ -17,12 +17,12 @@ Get started using thenewboston SDK in your project by following this documentati
 ### Nuget
 You can use the Nuget package manager in Visual Studio or the Nuget CLI by installing the following package into a .Net Core 3.1 project:
 
-    thenewboston.PackageName.Here
+    Thenewboston
     
 For projects that support  adding  a Nuget reference you may paste the following into your .csproj file:
 
 	<ItemGroup>
-	    <PackageReference Include="thenewboston.PackageName.Here" Version="0.0.0" />
+	    <PackageReference Include="Thenewboston" Version="0.0.0" />
 	</ItemGroup>
 
 ## SDK References
