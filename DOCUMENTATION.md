@@ -1,5 +1,5 @@
 
-# Thenewboston .NET Core SDK
+# TheNewBoston .NET Core SDK
 ## Library Description
 This is a .NET Core SDK for **thenewboston**, which will be available cross-platoform. The library itself will solely contain the domain and data layers of **thenewboston**. The presentation layer will be the responsibility of the host application.
 
@@ -32,6 +32,7 @@ For projects that support  adding  a Nuget reference you may paste the following
 	 * ConnectedBankService
 	 * TransactionService
 	 * ValidatorService
+	 * BankConfirmationBlockService
  2. Common
 	 * 
  3. Validator
@@ -40,6 +41,7 @@ For projects that support  adding  a Nuget reference you may paste the following
 	 * ConnectedBankService
 	 * TransactionService
 	 * ValidatorService
+	 * ValidatorConfirmationBlockService
 
 ## Namespace Index
 This section provides quick links to a list of items contained within the following namespaces
@@ -67,6 +69,7 @@ Description
 ##  ConnectedBankService
 ##  TransactionService
 ##  ValidatorService
+##  BankConfirmationBlockService
 ##  Bank Exceptions (BNK)
 |Exception|Class|Thrown From|Description  |
 |--|--|--|--|
@@ -97,6 +100,7 @@ Description
 ## ConnectedBankService
 ## TransactionService
 ## ValidatorService
+## ValidatorConfirmationBlockService
 ## Validator Exceptions (VLD)
 |Exception|Class|Thrown From|Description  |
 |--|--|--|--|
