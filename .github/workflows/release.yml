@@ -74,4 +74,8 @@ jobs:
       working-directory: ${{env.working-directory}}/Thenewboston
       
     - name: Publish NuGet Package
-      run: dotnet nuget push ${{env.working-directory}}/Thenewboston/bin/Release/Thenewboston.${versionNumber}.nupkg --api-key ${{ secrets.API_KEY_NUGET }} --source https://api.nuget.org/v3/index.json --no-symbols true
+      run: |
+        export version=${{steps.previoustag.outputs.tag}}
+        export versionNumber=${version:1}
+        dotnet nuget push ./bin/Release/Thenewboston.${versionNumber}.nupkg --api-key ${{ secrets.API_KEY_NUGET }} --source https://api.nuget.org/v3/index.json --no-symbols true
+      working-directory: ${{env.working-directory}}/Thenewboston
