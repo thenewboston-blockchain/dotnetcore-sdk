@@ -7,7 +7,7 @@ namespace Thenewboston.Bank.Api
 {
     public interface IBankConfirmationBlockService
     {
-        public Task<PaginatedResponseModel> GetAllBankConfiramtionBlocksAsync();
+        public Task<PaginatedResponseModel> GetAllBankConfirmationBlocksAsync();
         public Task<HttpResponseMessage> PostConfirmationBlockAsync(ConfirmationBlock confirmationBlock); 
     }
 }
