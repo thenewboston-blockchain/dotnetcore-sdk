@@ -9,8 +9,8 @@ namespace Thenewboston.Bank.Api
 {
     public interface IInvalidBlocksService
     {
-        Task<IEnumerable<BankInvalidBlock>> GetInvalidBankBlocks();
-        Task<BankInvalidBlock> SendInvalidBlocksToBank(BankInvalidBlockRequest model);
+        Task<IEnumerable<BankInvalidBlock>> GetInvalidBankBlocksAsync();
+        Task<BankInvalidBlock> SendInvalidBlocksToBankAsync(BankInvalidBlockRequest model);
         
     }
 }

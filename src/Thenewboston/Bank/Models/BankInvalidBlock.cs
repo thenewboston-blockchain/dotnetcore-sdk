@@ -9,10 +9,10 @@ namespace Thenewboston.Bank.Models
         public string Id { get; set; }
 
         [JsonProperty("created_date")]
-        public DateTime CreatedDate { get; set; }
+        public DateTime Created { get; set; }
 
         [JsonProperty("modified_date")]
-        public DateTime ModifiedDate { get; set; }
+        public DateTime Modified { get; set; }
 
         [JsonProperty("block_identifier")]
         public string BlockIdentifier { get; set; }

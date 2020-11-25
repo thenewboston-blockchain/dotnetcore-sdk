@@ -18,7 +18,7 @@ namespace Thenewboston.Bank.Api
             _requestSender = requestSender;
         }
         
-        public async Task<IEnumerable<BankInvalidBlock>> GetInvalidBankBlocks()
+        public async Task<IEnumerable<BankInvalidBlock>> GetInvalidBankBlocksAsync()
         {
             try
             {
@@ -39,7 +39,7 @@ namespace Thenewboston.Bank.Api
             }
         }
 
-        public async Task<BankInvalidBlock> SendInvalidBlocksToBank(BankInvalidBlockRequest model)
+        public async Task<BankInvalidBlock> SendInvalidBlocksToBankAsync(BankInvalidBlockRequest model)
         {
             try
             {
