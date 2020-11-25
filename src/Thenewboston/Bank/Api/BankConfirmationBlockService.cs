@@ -19,10 +19,10 @@ namespace Thenewboston.Bank.Api
         }
 
         /// <summary>
-        /// Retrieves confirmation blocks from the connected bank via paginated <see cref="ResponseModel"/>
+        /// Retrieves confirmation blocks from the connected bank via paginated <see cref="PaginatedResponseModel"/>
         /// </summary>
-        /// <returns><see cref="ResponseModel"/> containing all bank to client confirmation blocks</returns>
-        public async Task<ResponseModel> GetAllBankConfiramtionBlocksAsync()
+        /// <returns><see cref="PaginatedResponseModel"/> containing all bank to client confirmation blocks</returns>
+        public async Task<PaginatedResponseModel> GetAllBankConfiramtionBlocksAsync()
         {
             var response = await _requestSender.GetAsync("/confirmation_blocks"); 
             
@@ -40,7 +40,7 @@ namespace Thenewboston.Bank.Api
                 throw new Exception(); 
             }
 
-            var result = JsonConvert.DeserializeObject<ResponseModel>(stringResponse);
+            var result = JsonConvert.DeserializeObject<PaginatedResponseModel>(stringResponse);
 
             return result; 
         }

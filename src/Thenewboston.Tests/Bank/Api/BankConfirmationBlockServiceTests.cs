@@ -23,9 +23,9 @@ namespace Thenewboston.Tests.Bank.Api
 
         #region Test Models 
 
-        private ResponseModel CreateMockBankConfirmationBlock()
+        private PaginatedResponseModel CreateMockBankConfirmationBlock()
         {
-            return new ResponseModel()
+            return new PaginatedResponseModel()
             {
                 Count = 1,
                 Next = string.Empty,
