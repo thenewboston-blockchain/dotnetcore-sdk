@@ -8,7 +8,6 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Common\Models\" />
     <Folder Include="Common\Math\" />
     <Folder Include="Common\Http\" />
   </ItemGroup>
