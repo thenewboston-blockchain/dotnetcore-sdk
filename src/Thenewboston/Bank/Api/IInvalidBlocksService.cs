@@ -1,15 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Net;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Thenewboston.Bank.Models;
+using Thenewboston.Common.Api.Models;
 
 namespace Thenewboston.Bank.Api
 {
     public interface IInvalidBlocksService
     {
-        Task<IEnumerable<BankInvalidBlock>> GetInvalidBankBlocksAsync();
+        Task<PaginatedResponseModel<BankInvalidBlock>> GetInvalidBankBlocksAsync(PaginationParams pagination = default);
         Task<BankInvalidBlock> SendInvalidBlocksToBankAsync(BankInvalidBlockRequest model);
         
     }
