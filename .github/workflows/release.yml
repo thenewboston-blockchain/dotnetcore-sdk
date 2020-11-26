@@ -13,6 +13,19 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+      with:
+        fetch-depth: '0'
+
+    - name: Bump version and push tag
+      uses: anothrNick/github-tag-action@1.26.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        RELEASE_BRANCHES: main
+        WITH_V: true
+
+    - name: Get Previous tag
+      id: previoustag
+      uses: "WyriHaximus/github-action-get-previous-tag@master"
 
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
@@ -28,7 +41,7 @@ jobs:
       working-directory: ${{env.working-directory}}
       
     - name: Zip the Build
-      run: zip -r Thenewboston.${{ github.event.release.tag_name }} ${{env.working-directory}}/Thenewboston/bin/Release/netcoreapp3.1/
+      run: zip -r ${{env.working-directory}}/Thenewboston.${{ steps.previoustag.outputs.tag }}.zip ${{env.working-directory}}/Thenewboston/bin/Release/netcoreapp3.1/
 
     - name: Create Release
       id: create_release
@@ -36,9 +49,9 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
-        body: For release details please refer to https://github.com/thenewboston-developers/dotnetcore-sdk/releases/tag/${{ github.event.release.tag_name }}"
+        tag_name: ${{ steps.previoustag.outputs.tag }}
+        release_name: Release ${{ steps.previoustag.outputs.tag }}
+        body: Latest source code and binaries
         draft: false
         prerelease: false
 
@@ -49,13 +62,20 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ${{env.working-directory}}/Thenewboston/bin/Release/netcoreapp3.1/Thenewboston.${{ github.event.release.tag_name }}.zip
-        asset_name: ${{env.working-directory}}/Thenewboston/bin/Release/netcoreapp3.1/Thenewboston.${{ github.event.release.tag_name }}.zip
+        asset_path: ${{env.working-directory}}/Thenewboston.${{ steps.previoustag.outputs.tag }}.zip
+        asset_name: Thenewboston.${{ steps.previoustag.outputs.tag }}.zip
         asset_content_type: application/zip
 
     - name: Create NuGet Package
-      run: dotnet pack -c Release /p:Version=${{ github.event.release.tag_name }} /p:PackageReleaseNotes="Please refer to https://github.com/thenewboston-developers/dotnetcore-sdk/releases/tag/${{ github.event.release.tag_name }}"
+      run: |
+        export version=${{steps.previoustag.outputs.tag}}
+        export versionNumber=${version:1}
+        dotnet pack -c Release /p:Version=$versionNumber /p:PackageReleaseNotes="Please refer to https://github.com/thenewboston-developers/dotnetcore-sdk/"
       working-directory: ${{env.working-directory}}/Thenewboston
       
     - name: Publish NuGet Package
-      run: dotnet nuget push ${{env.working-directory}}/Thenewboston/bin/Release/Thenewboston.${{ github.event.release.tag_name }}.nupkg --api-key ${{ secrets.API_KEY_NUGET }} --source https://api.nuget.org/v3/index.json --no-symbols true
+      run: |
+        export version=${{steps.previoustag.outputs.tag}}
+        export versionNumber=${version:1}
+        dotnet nuget push ./bin/Release/Thenewboston.${versionNumber}.nupkg --api-key ${{ secrets.API_KEY_NUGET }} --source https://api.nuget.org/v3/index.json --no-symbols true
+      working-directory: ${{env.working-directory}}/Thenewboston
