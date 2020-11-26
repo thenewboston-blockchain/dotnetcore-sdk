@@ -23,9 +23,9 @@ namespace Thenewboston.Bank.Api
             var url = "";
 
             url = pagination switch {
-                ( not null and >0 , _ ,_ ) => $"/invalid_blocks?page={pagination.Page}",
-                (<= 0 or null , >= 0 , > 0) => $"/invalid_blocks?offset={pagination.Offset}&limit={pagination.Limit}",
-                (<= 0 or null , >= 0 , <=0 or null) => $"/invalid_blocks?offset={pagination.Offset}&limit=20",
+                PaginationParams p when  p.Page != null && p.Page  >0 => $"/invalid_blocks?page={p.Page}",
+                PaginationParams p when  (p.Page == null ||  p.Page  <= 0) && p.Offset >=0 && p.Limit >0 => $"/invalid_blocks?offset={p.Offset}&limit={p.Limit}",
+                PaginationParams p when (p.Page == null ||  p.Page  <= 0) && p.Offset >= 0 && (p.Limit <=0 || p.Limit is null) => $"/invalid_blocks?offset={pagination.Offset}&limit=20",
                 _ => $"/invalid_blocks?page=1"
             };
             var response = await _requestSender.GetAsync(url);
