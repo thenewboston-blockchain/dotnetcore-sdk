@@ -4,7 +4,7 @@ namespace Thenewboston.Validator.Models
 {
     public class UpgradeRequest
     {
-        [JsonProperty(PropertyName ="")]
+        [JsonProperty(PropertyName ="message")]
         public UpgradeRequestMessage Message { get; set; }
 
         [JsonProperty(PropertyName ="node_identifier")]
