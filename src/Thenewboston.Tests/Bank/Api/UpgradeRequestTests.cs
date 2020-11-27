@@ -10,6 +10,13 @@ namespace Thenewboston.Tests.Bank.Api
 {
     public class UpgradeRequestTests
     {
+
+        // ***************************************
+        // Validator Upgrade Request Tests       *
+        // Created 11/27/2020 based on available *
+        // documentation                         *
+        // ***************************************
+
         #region Upgrade Request Mock Models
 
         public UpgradeRequest CreateMockUpgradeRequest()
