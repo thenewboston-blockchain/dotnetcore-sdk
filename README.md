@@ -3,7 +3,8 @@
 This is a .NET Core SDK for **thenewboston**, which will be available cross-platoform. The library itself will solely contain the domain and data layers of **thenewboston**. The presentation layer will be the responsibility of the host application.
 
 ## Status
-![SDK CI pipeline](https://github.com/thenewboston-developers/dotnetcore-sdk/workflows/SDK%20CI%20pipeline/badge.svg)
+![SDK CI pipeline](https://github.com/thenewboston-developers/dotnetcore-sdk/workflows/SDK%20CI%20pipeline/badge.svg)   
+![Create and Publish package](https://github.com/thenewboston-developers/dotnetcore-sdk/workflows/Create%20and%20Publish%20package/badge.svg?branch=main)
 
 
 ## How to get started
