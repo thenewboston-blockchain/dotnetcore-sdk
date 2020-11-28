@@ -25,7 +25,7 @@ namespace Thenewboston.Bank.Api
             }
 
             var httpContent = new StringContent(JsonConvert.SerializeObject(upgradeNotice));
-            var jsonString = await new StringContent(JsonConvert.SerializeObject(upgradeNotice)).ReadAsStringAsync();
+            var jsonString = await httpContent.ReadAsStringAsync(); 
 
             if(string.IsNullOrEmpty(jsonString))
             {
