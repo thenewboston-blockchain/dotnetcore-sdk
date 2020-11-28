@@ -143,7 +143,7 @@ namespace Thenewboston.Tests.Bank.Api
         #region Tests
 
         [Fact]
-        public async void BankConfiramtionBlockReturnedAsync()
+        public async void BankConfirmationBlockReturnedAsync()
         {
             var service = BuildConfirmationBlockGetMock();
             var returnedBankConfirmationBlock = await service.GetAllBankConfiramtionBlocksAsync();
