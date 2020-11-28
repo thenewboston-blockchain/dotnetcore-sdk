@@ -19,7 +19,7 @@ namespace Thenewboston.Bank.Api
             _requestSender = requestSender;
         }
 
-        public async Task<PaginatedResponseModel> GetBanksAsync()
+        public async Task<PaginatedResponseModel<BankResponseModel>> GetBanksAsync()
         {
             var response = await _requestSender.GetAsync("/banks");
 
@@ -37,7 +37,7 @@ namespace Thenewboston.Bank.Api
                 throw new Exception();
             }
 
-            var result = JsonConvert.DeserializeObject<PaginatedResponseModel>(stringResult);
+            var result = JsonConvert.DeserializeObject<PaginatedResponseModel<BankResponseModel>>(stringResult);
 
             return result;
         }

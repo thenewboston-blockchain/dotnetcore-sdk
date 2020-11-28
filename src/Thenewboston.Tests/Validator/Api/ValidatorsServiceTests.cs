@@ -23,7 +23,7 @@ namespace Thenewboston.Tests.Validator.Api
             [Fact]
             public async void ListOfValidatorsIsReturned()
             {
-                PaginatedResponseModel expectedResponseModel = new PaginatedResponseModel
+                var expectedResponseModel = new PaginatedResponseModel<ValidatorResponseModel>
                 {
                     Count = 2,
                     Next = null,
@@ -75,7 +75,7 @@ namespace Thenewboston.Tests.Validator.Api
             }
         }
 
-        public static IValidatorsService BuildBankValidatorMock(PaginatedResponseModel expectedResponseModel)
+        public static IValidatorsService BuildBankValidatorMock(PaginatedResponseModel<ValidatorResponseModel> expectedResponseModel)
         {
             var requestSender = new Mock<IHttpRequestSender>();
 

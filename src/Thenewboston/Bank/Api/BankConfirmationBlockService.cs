@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
 using Thenewboston.Common.Models;
+using BankConfirmationBlockResponse = Thenewboston.Bank.Models.BankConfirmationBlockResponse;
 
 namespace Thenewboston.Bank.Api
 {
@@ -22,7 +23,7 @@ namespace Thenewboston.Bank.Api
         /// Retrieves confirmation blocks from the connected bank via paginated <see cref="PaginatedResponseModel"/>
         /// </summary>
         /// <returns><see cref="PaginatedResponseModel"/> containing all bank to client confirmation blocks</returns>
-        public async Task<PaginatedResponseModel> GetAllBankConfirmationBlocksAsync()
+        public async Task<PaginatedResponseModel<BankConfirmationBlockResponse>> GetAllBankConfiramtionBlocksAsync()
         {
             var response = await _requestSender.GetAsync("/confirmation_blocks"); 
             
@@ -40,7 +41,7 @@ namespace Thenewboston.Bank.Api
                 throw new Exception(); 
             }
 
-            var result = JsonConvert.DeserializeObject<PaginatedResponseModel>(stringResponse);
+            var result = JsonConvert.DeserializeObject<PaginatedResponseModel<BankConfirmationBlockResponse>>(stringResponse);
 
             return result; 
         }
