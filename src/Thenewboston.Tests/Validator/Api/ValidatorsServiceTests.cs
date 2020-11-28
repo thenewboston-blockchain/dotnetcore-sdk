@@ -10,6 +10,7 @@ using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
 using Thenewboston.Common.Models;
 using Thenewboston.Validator.Api;
+using Thenewboston.Validator.Api.Models;
 using Thenewboston.Validator.Models;
 using Xunit;
 

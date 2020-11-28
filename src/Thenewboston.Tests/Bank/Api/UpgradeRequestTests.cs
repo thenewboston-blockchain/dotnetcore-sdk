@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Moq;
 using Thenewboston.Common.Http;
 using Thenewboston.Validator.Api;
+using Thenewboston.Validator.Api.Models;
 using Thenewboston.Validator.Models;
 using Xunit;
 

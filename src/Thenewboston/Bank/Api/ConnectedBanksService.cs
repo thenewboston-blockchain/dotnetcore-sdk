@@ -4,7 +4,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Thenewboston.Bank.Api.Models;
-using Thenewboston.Bank.Models;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
 
@@ -19,7 +18,7 @@ namespace Thenewboston.Bank.Api
             _requestSender = requestSender;
         }
 
-        public async Task<PaginatedResponseModel<BankResponseModel>> GetBanksAsync()
+        public async Task<PaginatedResponseModel<BankResponse>> GetBanksAsync()
         {
             var response = await _requestSender.GetAsync("/banks");
 
@@ -37,12 +36,12 @@ namespace Thenewboston.Bank.Api
                 throw new Exception();
             }
 
-            var result = JsonConvert.DeserializeObject<PaginatedResponseModel<BankResponseModel>>(stringResult);
+            var result = JsonConvert.DeserializeObject<PaginatedResponseModel<BankResponse>>(stringResult);
 
             return result;
         }
 
-        public async Task<BankResponseModel> UpdateBankAsync(string nodeIdentifier, RequestModel payload)
+        public async Task<BankResponse> UpdateBankAsync(string nodeIdentifier, RequestModel payload)
         {
             var jsonPayload = JsonConvert.SerializeObject(payload);
             var httpContent = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
@@ -63,7 +62,7 @@ namespace Thenewboston.Bank.Api
                 throw new Exception();
             }
 
-            var result = JsonConvert.DeserializeObject<BankResponseModel>(stringResult);
+            var result = JsonConvert.DeserializeObject<BankResponse>(stringResult);
 
             return result;
         }

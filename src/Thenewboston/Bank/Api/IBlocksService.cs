@@ -1,8 +1,8 @@
 using System.Net.Http;
 using System.Threading.Tasks;
+using Thenewboston.Bank.Api.Models;
 using Thenewboston.Bank.Models;
 using Thenewboston.Common.Api.Models;
-using Block = Thenewboston.Common.Models.Block;
 
 namespace Thenewboston.Bank.Api
 {
@@ -10,6 +10,6 @@ namespace Thenewboston.Bank.Api
     {
         public Task<PaginatedResponseModel<BankBlock>> GetBlocksAsync();
         
-        public Task<HttpResponseMessage> PostBlocksAsync(Block block);
+        public Task<HttpResponseMessage> PostBlocksAsync(Thenewboston.Common.Models.Block block);
     }
 }

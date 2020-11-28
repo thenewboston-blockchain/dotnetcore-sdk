@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Thenewboston.Bank.Models
+namespace Thenewboston.Bank.Api.Models
 {
     public class BankInvalidBlockRequest
     {

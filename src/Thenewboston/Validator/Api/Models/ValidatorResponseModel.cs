@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace Thenewboston.Validator.Models
+namespace Thenewboston.Validator.Api.Models
 {
     public class ValidatorResponseModel
     {

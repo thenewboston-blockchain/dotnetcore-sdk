@@ -20,15 +20,15 @@ namespace Thenewboston.Tests.Bank.Api
             [Fact]
             public async void ListOfBanksIsReturned()
             {
-                var expectedResponseModel = new PaginatedResponseModel<BankResponseModel>
+                var expectedResponseModel = new PaginatedResponseModel<BankResponse>
                 {
                     Count = 2,
                     Next = null,
                     Previous = null,
                     Results =
-                    new List<BankResponseModel>
+                    new List<BankResponse>
                     {
-                        new BankResponseModel
+                        new BankResponse
                         {
                             AccountNumber = "5e12967707909e62b2bb2036c209085a784fabbc3deccefee70052b6181c8ed8",
                             IpAddress = "83.168.1.232",
@@ -39,7 +39,7 @@ namespace Thenewboston.Tests.Bank.Api
                             DefaultTransactionFee = 1,
                             Trust = "100.00"
                         },
-                        new BankResponseModel
+                        new BankResponse
                         {
                             AccountNumber = "db1a9ac3c356ab744ab4ad5256bb86c2f6dfaa7c1aece1f026a08dbd8c7178f2",
                             IpAddress = "74.124.1.68",
@@ -68,7 +68,7 @@ namespace Thenewboston.Tests.Bank.Api
             [Fact]
             public async void UpdatedBankIsReturned()
             {
-                var expectedBank = new BankResponseModel
+                var expectedBank = new BankResponse
                 {
                     AccountNumber = "5e12967707909e62b2bb2036c209085a784fabbc3deccefee70052b6181c8ed8",
                     IpAddress = "83.168.1.232",
@@ -92,7 +92,7 @@ namespace Thenewboston.Tests.Bank.Api
             }
         }
 
-        public static IConnectedBanksService BuildGetBanksAsyncConnectedBanksServiceMock(PaginatedResponseModel<BankResponseModel> expectedResponseModel)
+        public static IConnectedBanksService BuildGetBanksAsyncConnectedBanksServiceMock(PaginatedResponseModel<BankResponse> expectedResponseModel)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             response.Content = new StringContent(JsonConvert.SerializeObject(expectedResponseModel), Encoding.UTF8, "application/json");
@@ -107,7 +107,7 @@ namespace Thenewboston.Tests.Bank.Api
             return service;
         }
 
-        public static IConnectedBanksService BuildUpdateBankAsyncConnectedBanksServiceMock(BankResponseModel expectedBank)
+        public static IConnectedBanksService BuildUpdateBankAsyncConnectedBanksServiceMock(BankResponse expectedBank)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             response.Content = new StringContent(JsonConvert.SerializeObject(expectedBank), Encoding.UTF8, "application/json");
