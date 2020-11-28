@@ -10,6 +10,8 @@ using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
 using Thenewboston.Common.Models;
 using Xunit;
+using Block = Thenewboston.Common.Models.Block;
+using BlockMessage = Thenewboston.Common.Models.BlockMessage;
 
 namespace Thenewboston.Tests.Bank
 {
@@ -17,9 +19,9 @@ namespace Thenewboston.Tests.Bank
     {
         #region Test Models
 
-        private PaginatedResponseModel CreateMockBlock()
+        private PaginatedResponseModel<BankBlock> CreateMockBlock()
         {
-            return new PaginatedResponseModel() {
+            return new PaginatedResponseModel<BankBlock>() {
                 Count = 1,
                 Next = string.Empty,
                 Previous = string.Empty,

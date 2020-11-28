@@ -3,9 +3,10 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Thenewboston.Bank.Models;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
-using Thenewboston.Common.Models;
+using Block = Thenewboston.Common.Models.Block;
 
 namespace Thenewboston.Bank.Api
 {
@@ -18,7 +19,7 @@ namespace Thenewboston.Bank.Api
             _requestSender = requestSender;
         }
 
-        public async Task<PaginatedResponseModel> GetBlocksAsync()
+        public async Task<PaginatedResponseModel<BankBlock>> GetBlocksAsync()
         {
             var response = await _requestSender.GetAsync("/blocks");
 
@@ -36,7 +37,7 @@ namespace Thenewboston.Bank.Api
                 throw new Exception();
             }
 
-            var result = JsonConvert.DeserializeObject<PaginatedResponseModel>(stringResult);
+            var result = JsonConvert.DeserializeObject<PaginatedResponseModel<BankBlock>>(stringResult);
 
             return result;
         }

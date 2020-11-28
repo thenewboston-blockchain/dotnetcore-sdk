@@ -146,7 +146,7 @@ namespace Thenewboston.Tests.Bank.Api
         public async void BankConfirmationBlockReturnedAsync()
         {
             var service = BuildConfirmationBlockGetMock();
-            var returnedBankConfirmationBlock = await service.GetAllBankConfirmationBlocksAsync();
+            var returnedBankConfirmationBlock = await service.GetAllBankConfiramtionBlocksAsync();
             var expectedResult = JsonConvert.SerializeObject(CreateMockBankConfirmationBlock());
             var actualResult = JsonConvert.SerializeObject(returnedBankConfirmationBlock);
             Assert.Equal(expectedResult, actualResult); 
