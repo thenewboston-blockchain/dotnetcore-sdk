@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace Thenewboston.Common.Api.Models
 {
-    public class PaginatedResponseModel
+    public class PaginatedResponseModel<T>
     {
         [JsonProperty(PropertyName = "count")]
         public int Count { get; set; }
@@ -17,6 +17,6 @@ namespace Thenewboston.Common.Api.Models
         public string Previous { get; set; }
 
         [JsonProperty(PropertyName = "results")]
-        public IEnumerable<object> Results { get; set; }
+        public IEnumerable<T> Results { get; set; }
     }
 }
