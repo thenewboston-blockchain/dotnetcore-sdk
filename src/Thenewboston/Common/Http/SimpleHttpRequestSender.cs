@@ -4,49 +4,76 @@ using System.Threading.Tasks;
 
 namespace Thenewboston.Common.Http
 {
-    public class SimpleHttpRequestSender : IHttpRequestSender
+    public sealed class SimpleHttpRequestSender : IHttpRequestSender
     {
-        private HttpClient _client;
+        private Uri _baseAddress; 
 
         public SimpleHttpRequestSender(string baseAddress)
         {
-            _client = new HttpClient();
-            _client.BaseAddress = new Uri(baseAddress);
+            CreateBaseAddressURI(baseAddress); 
         }
 
-        public Task<HttpResponseMessage> GetAsync(string uri)
+        private void CreateBaseAddressURI(string baseAddress)
         {
-            var response = _client.GetAsync(uri);
+            Uri uriBaseAddress;
+            Uri.TryCreate(baseAddress, UriKind.Absolute, out uriBaseAddress);
 
-            return response;
+            if(uriBaseAddress is null)
+            {
+                throw new Exception("CMN001: The base address provided to the SimpleHttpRequestSender was invalid"); 
+            }
+
+            _baseAddress = uriBaseAddress; 
         }
 
-        public Task<HttpResponseMessage> PostAsync(string uri, HttpContent content)
+        public async Task<HttpResponseMessage> GetAsync(string uri)
         {
-            var response = _client.PostAsync(uri, content);
-
-            return response;
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = _baseAddress; 
+                var response = await client.GetAsync(uri);
+                return response;
+            }
         }
 
-        public Task<HttpResponseMessage> PatchAsync(string uri, HttpContent content)
+        public async Task<HttpResponseMessage> PostAsync(string uri, HttpContent content)
         {
-            var response = _client.PatchAsync(uri, content);
-
-            return response;
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = _baseAddress;
+                var response = await client.PostAsync(uri, content);
+                return response;
+            }
         }
 
-        public Task<HttpResponseMessage> PutAsync(string uri, HttpContent content)
+        public async Task<HttpResponseMessage> PatchAsync(string uri, HttpContent content)
         {
-            var response = _client.PutAsync(uri, content);
-
-            return response;
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = _baseAddress;
+                var response = await client.PatchAsync(uri, content);
+                return response;
+            }
         }
 
-        public Task<HttpResponseMessage> DeleteAsync(string uri)
+        public async Task<HttpResponseMessage> PutAsync(string uri, HttpContent content)
         {
-            var response = _client.DeleteAsync(uri);
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = _baseAddress;
+                var response = await client.PutAsync(uri, content);
+                return response;
+            }
+        }
 
-            return response;
+        public async Task<HttpResponseMessage> DeleteAsync(string uri)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = _baseAddress;
+                var response = await client.DeleteAsync(uri);
+                return response;
+            }
         }
     }
 }
