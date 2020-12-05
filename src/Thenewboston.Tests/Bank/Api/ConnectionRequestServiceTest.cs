@@ -17,7 +17,7 @@ namespace Thenewboston.Tests.Bank.Api
         {
             return new ConnectionRequest()
             { 
-                Message = new ConnectionMessage()
+                Message = new ConnectionRequestMessage()
                 { 
                     IpAddress = "192.168.1.232",
                     Port = "8000",

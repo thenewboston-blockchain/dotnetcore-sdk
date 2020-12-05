@@ -8,7 +8,7 @@ namespace Thenewboston.Bank.Models
     public class ConnectionRequest
     {
         [JsonProperty(PropertyName = "message")]
-        public ConnectionMessage Message { get; set; }
+        public ConnectionRequestMessage Message { get; set; }
 
         [JsonProperty(PropertyName = "node_identifier")]
         public string NodeIdentifier { get; set; }

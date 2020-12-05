@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace Thenewboston.Bank.Models
+namespace Thenewboston.Validator.Models
 {
-    public class ConnectionMessage
+    public class ConnectionRequestMessage
     {
         [JsonProperty(PropertyName = "ip_address")]
         public string IpAddress { get; set; }
