@@ -28,18 +28,25 @@ For projects that support  adding  a Nuget reference you may paste the following
 ## SDK References
  1. Bank
 	 * AccountsService
+	 * BankConfirmationBlockService
+	 * BlocksService
 	 * ConfigService
 	 * ConnectedBankService
-	 * TransactionService
+	 * InvalidBlocksService
+	 * TransactionsService
+	 * UpgradeNoticeService
 	 * ValidatorService
-	 * BankConfirmationBlockService
+	 
  2. Common
 	 * 
  3. Validator
 	 * AccountsService
+	 * BankBlockService
 	 * ConfigService
 	 * ConnectedBankService
+	 * PrimaryValidatorUpdatedService
 	 * TransactionService
+	 * UpgradeRequestService
 	 * ValidatorService
 	 * ValidatorConfirmationBlockService
 
@@ -64,14 +71,20 @@ Description
 	 Thenewboston.Bank.Api
 	 Thenewboston.Bank.Models
 	 
-## AccountsService
+##  AccountsService
+##  BankConfirmationBLockService
+##  BlocksService
 ##  ConfigService
+##  ConfirmationService
 ##  ConnectedBankService
+##  ConnectionRequestService
+##  InvalidBlocksService
 ##  TransactionService
+##  UpgradeNoticeService
 ##  ValidatorService
-##  BankConfirmationBlockService
 ##  Bank Exceptions (BNK)
-|Exception|Class|Thrown From|Description  |
+
+|Exception|Class|Thrown From|Description|
 |--|--|--|--|
 |BNK001|AccountsService|SampleMethod()|Sample Description|
 |BNK002|ConfigService|SampleMethod()|Sample Description|
@@ -96,9 +109,14 @@ Description
 	Thenewboston.Validator.Api
 	Thenewboston.Validator.Models
 ## AccountsService
+## BankBlockService
 ## ConfigService
+## ConfirmationService
 ## ConnectedBankService
+## ConnectionRequestService
+## PrimaryValidatorUpdatedService
 ## TransactionService
+## UpgradeRequestService
 ## ValidatorService
 ## ValidatorConfirmationBlockService
 ## Validator Exceptions (VLD)
