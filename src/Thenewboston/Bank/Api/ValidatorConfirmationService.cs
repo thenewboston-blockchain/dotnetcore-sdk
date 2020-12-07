@@ -6,11 +6,11 @@ using Thenewboston.Common.Http;
 
 namespace Thenewboston.Bank.Api
 {
-    public class BankConfirmationService : IBankConfirmationService
+    public class ValidatorConfirmationService : IValidatorConfirmationService
     {
         private readonly IHttpRequestSender _requestSender;
 
-        public BankConfirmationService(IHttpRequestSender requestSender)
+        public ValidatorConfirmationService(IHttpRequestSender requestSender)
         {
             _requestSender = requestSender;
         }
