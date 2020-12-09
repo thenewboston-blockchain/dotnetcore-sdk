@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Thenewboston.Bank.Api.Models;
 using Thenewboston.Bank.Models;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;

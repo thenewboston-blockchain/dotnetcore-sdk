@@ -3,10 +3,10 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Thenewboston.Bank.Api.Models;
 using Thenewboston.Bank.Models;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
-using Block = Thenewboston.Common.Models.Block;
 
 namespace Thenewboston.Bank.Api
 {
@@ -42,7 +42,7 @@ namespace Thenewboston.Bank.Api
             return result;
         }
 
-        public async Task<HttpResponseMessage> PostBlocksAsync(Block block)
+        public async Task<HttpResponseMessage> PostBlocksAsync(Thenewboston.Common.Models.Block block)
         {
             var httpContent = new StringContent(JsonConvert.SerializeObject(block), Encoding.UTF8, "application/json"); 
             var request = await _requestSender.PostAsync("/blocks", httpContent); 

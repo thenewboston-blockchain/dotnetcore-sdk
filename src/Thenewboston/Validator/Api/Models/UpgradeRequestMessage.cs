@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Thenewboston.Validator.Models
+namespace Thenewboston.Validator.Api.Models
 {
     public class UpgradeRequestMessage
     {

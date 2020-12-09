@@ -3,10 +3,10 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Thenewboston.Bank.Api.Models;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
 using Thenewboston.Common.Models;
-using BankConfirmationBlockResponse = Thenewboston.Bank.Models.BankConfirmationBlockResponse;
 
 namespace Thenewboston.Bank.Api
 {

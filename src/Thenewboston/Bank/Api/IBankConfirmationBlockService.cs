@@ -1,8 +1,8 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
+using Thenewboston.Bank.Api.Models;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Models;
-using BankConfirmationBlockResponse = Thenewboston.Bank.Models.BankConfirmationBlockResponse;
 
 namespace Thenewboston.Bank.Api
 {
