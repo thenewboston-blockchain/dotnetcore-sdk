@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 using Thenewboston.Common.Api.Models;
-using Thenewboston.Validator.Models;
+using Thenewboston.Validator.Api.Models;
 
 namespace Thenewboston.Validator.Api
 {

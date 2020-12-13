@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
-using Thenewboston.Validator.Models;
+using Thenewboston.Validator.Api.Models;
 
 namespace Thenewboston.Validator.Api
 {

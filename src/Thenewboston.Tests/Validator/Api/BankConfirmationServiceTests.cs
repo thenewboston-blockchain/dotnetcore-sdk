@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
 using Thenewboston.Validator.Api;
-using Thenewboston.Validator.Models;
+using Thenewboston.Validator.Api.Models;
 using Xunit;
 
 namespace Thenewboston.Tests.Validator.Api

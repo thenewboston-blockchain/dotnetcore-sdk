@@ -1,6 +1,6 @@
 using System.Net.Http;
 using System.Threading.Tasks;
-using Thenewboston.Bank.Models;
+using Thenewboston.Bank.Api.Models;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Models;
 

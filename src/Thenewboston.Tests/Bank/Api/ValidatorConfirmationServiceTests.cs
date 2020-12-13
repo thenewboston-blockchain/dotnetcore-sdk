@@ -5,7 +5,7 @@ using System.Text;
 using Moq;
 using Newtonsoft.Json;
 using Thenewboston.Bank.Api;
-using Thenewboston.Bank.Models;
+using Thenewboston.Bank.Api.Models;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
 using Thenewboston.Common.Models;
