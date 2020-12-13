@@ -10,7 +10,6 @@
   <ItemGroup>
     <Folder Include="Common\Math\" />
     <Folder Include="Common\Http\" />
-    <Folder Include="Validator\Api\Models\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
