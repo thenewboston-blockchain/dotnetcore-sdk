@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
 using Moq;
 using Thenewboston.Common.Http;
@@ -20,7 +17,7 @@ namespace Thenewboston.Tests.Validator.Api
                 Message = new ConnectionRequestMessage()
                 {
                     IpAddress = "192.168.1.232",
-                    Port = "8000",
+                    Port = 8000,
                     Protocol = "http"
                 },
                 NodeIdentifier = "d5356888dc9303e44ce52b1e06c3165a7759b9df1e6a6dfbd33ee1c3df1ab4d1",

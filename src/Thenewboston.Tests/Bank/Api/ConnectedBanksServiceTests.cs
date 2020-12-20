@@ -6,7 +6,6 @@ using Moq;
 using Newtonsoft.Json;
 using Thenewboston.Bank.Api;
 using Thenewboston.Bank.Api.Models;
-using Thenewboston.Bank.Models;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
 using Xunit;

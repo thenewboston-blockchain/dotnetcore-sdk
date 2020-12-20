@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Numerics;
+using Newtonsoft.Json;
 
 namespace Thenewboston.Bank.Models
 {
@@ -13,7 +14,7 @@ namespace Thenewboston.Bank.Models
 
         public string Recipient { get; set; }
 
-        public decimal Amount { get; set; }
+        public BigDecimal Amount { get; set; }
         
     }
 }

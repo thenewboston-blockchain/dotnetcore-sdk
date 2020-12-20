@@ -6,7 +6,6 @@ using Moq;
 using Newtonsoft.Json;
 using Thenewboston.Bank.Api;
 using Thenewboston.Bank.Api.Models;
-using Thenewboston.Bank.Models;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
 using Thenewboston.Common.Models;
@@ -63,17 +62,17 @@ namespace Thenewboston.Tests.Bank.Api
                             {
                                 new ConfirmationBankBlockTransaction()
                                 {
-                                    Amount = "4",
+                                    Amount = 4,
                                     Recipient = "484b3176c63d5f37d808404af1a12c4b9649cd6f6769f35bdf5a816133623fbc"
                                 },
                                 new ConfirmationBankBlockTransaction()
                                 {
-                                    Amount = "1",
+                                    Amount = 1,
                                     Recipient = "5e12967707909e62b2bb2036c209085a784fabbc3deccefee70052b6181c8ed8"
                                 },
                                 new ConfirmationBankBlockTransaction()
                                 {
-                                    Amount = "4",
+                                    Amount = 4,
                                     Recipient = "ad1f8845c6a1abb6011a2a434a079a087c460657aad54329a84b406dce8bf314"
                                 }
                             }
@@ -86,23 +85,23 @@ namespace Thenewboston.Tests.Bank.Api
                     new ConfirmationUpdatedBalanceRecord()
                     {
                         AccountNumber = "0cdd4ba04456ca169baca3d66eace869520c62fe84421329086e03d91a68acdb",
-                        Balance = "4294967014",
+                        Balance = 4294967014,
                         BalanceLock = "729ce6ce619aeedf260221c7687c51d8a6845fbb5407b11c8cd26eaa7c8a6125"
                     },
                     new ConfirmationUpdatedBalanceRecord()
                     {
                         AccountNumber = "484b3176c63d5f37d808404af1a12c4b9649cd6f6769f35bdf5a816133623fbc",
-                        Balance = "191",
+                        Balance = 191,
                     },
                     new ConfirmationUpdatedBalanceRecord()
                     {
                         AccountNumber = "5e12967707909e62b2bb2036c209085a784fabbc3deccefee70052b6181c8ed8",
-                        Balance = "18",
+                        Balance = 18,
                     },
                     new ConfirmationUpdatedBalanceRecord()
                     {
                         AccountNumber = "ad1f8845c6a1abb6011a2a434a079a087c460657aad54329a84b406dce8bf314",
-                        Balance = "72",
+                        Balance = 72,
                     }
                 },
                 BlockIdentifier = "4c9595b2b661a23e665256d6826ae940bd4ea82bef0c1ba7b3104e40a4c42b91",

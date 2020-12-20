@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Numerics;
+using Newtonsoft.Json;
 
 namespace Thenewboston.Bank.Api.Models
 {
@@ -50,7 +51,7 @@ namespace Thenewboston.Bank.Api.Models
     public class BlockTransactions
     {
         [JsonProperty("amount")]
-        public double Amount { get; set; }
+        public BigDecimal Amount { get; set; }
 
         [JsonProperty("recipient")]
         public string Recipient { get; set; }

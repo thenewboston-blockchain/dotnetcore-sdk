@@ -1,7 +1,9 @@
-﻿namespace Thenewboston.Validator.Models
+﻿using System.Numerics;
+
+namespace Thenewboston.Validator.Models
 {
     public class ValidatorAccountBalance
     {
-        public string Balance { get; set; }
+        public BigDecimal Balance { get; set; }
     }
 }

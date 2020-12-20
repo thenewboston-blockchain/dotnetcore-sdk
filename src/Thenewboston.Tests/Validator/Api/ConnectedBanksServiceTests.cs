@@ -4,7 +4,6 @@ using System.Net.Http;
 using System.Text;
 using Moq;
 using Newtonsoft.Json;
-using Thenewboston.Bank.Models;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
 using Thenewboston.Validator.Api;

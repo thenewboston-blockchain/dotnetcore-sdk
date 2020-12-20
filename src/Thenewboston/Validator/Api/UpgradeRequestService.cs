@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Thenewboston.Common.Http;
 using Thenewboston.Validator.Api.Models;
-using Thenewboston.Validator.Models;
 
 namespace Thenewboston.Validator.Api
 {

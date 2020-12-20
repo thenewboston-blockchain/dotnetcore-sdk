@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace Thenewboston.Bank.Models
 {
@@ -11,7 +8,7 @@ namespace Thenewboston.Bank.Models
         public string IpAddress { get; set; }
 
         [JsonProperty(PropertyName = "port")]
-        public string Port { get; set; }
+        public int? Port { get; set; }
 
         [JsonProperty(PropertyName = "protocol")]
         public string Protocol { get; set; }

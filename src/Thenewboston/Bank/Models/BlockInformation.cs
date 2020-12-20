@@ -1,5 +1,4 @@
-﻿using System;
-namespace Thenewboston.Bank.Models
+﻿namespace Thenewboston.Bank.Models
 {
     public class BlockInformation
     {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace Thenewboston.Validator.Api.Models
 {
@@ -23,13 +20,13 @@ namespace Thenewboston.Validator.Api.Models
         public string IpAddress { get; set; }
 
         [JsonProperty(PropertyName = "port")]
-        public string Port { get; set; }
+        public int? Port { get; set; }
 
         [JsonProperty(PropertyName = "version")]
         public string Version { get; set; }
 
         [JsonProperty(PropertyName = "daily_confirmation_rate")]
-        public string DailyConfirmationRate { get; set; }
+        public int? DailyConfirmationRate { get; set; }
 
         [JsonProperty(PropertyName = "root_account_file")]
         public string RootAccountFile { get; set; }
