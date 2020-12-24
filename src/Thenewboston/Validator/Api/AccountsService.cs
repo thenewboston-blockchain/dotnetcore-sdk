@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
 using Thenewboston.Validator.Models;
 
@@ -16,7 +17,7 @@ namespace Thenewboston.Validator.Api
             _requestSender = requestSender;
         }
 
-        public async Task<IEnumerable<ValidatorAccount>> GetAccountsAsync()
+        public async Task<PaginatedResponseModel<ValidatorAccount>> GetAccountsAsync()
         {
             var response = await _requestSender.GetAsync("/accounts");
 
@@ -34,7 +35,7 @@ namespace Thenewboston.Validator.Api
                 throw new Exception(); 
             }
 
-            var result = JsonConvert.DeserializeObject<IEnumerable<ValidatorAccount>>(stringResult);
+            var result = JsonConvert.DeserializeObject<PaginatedResponseModel<ValidatorAccount>>(stringResult);
 
             return result;
         }

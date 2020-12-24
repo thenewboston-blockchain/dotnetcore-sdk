@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Thenewboston.Bank.Api.Models;
 using Thenewboston.Bank.Models;
+using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
 
 namespace Thenewboston.Bank.Api
@@ -19,7 +20,7 @@ namespace Thenewboston.Bank.Api
             _requestSender = requestSender;
         }
 
-        public async Task<IEnumerable<BankAccount>> GetAccountsAsync()
+        public async Task<PaginatedResponseModel<BankAccount>> GetAccountsAsync()
         {
             var response = await _requestSender.GetAsync("/accounts");
 
@@ -37,7 +38,7 @@ namespace Thenewboston.Bank.Api
                 throw new Exception();
             }
 
-            var result = JsonConvert.DeserializeObject<IEnumerable<BankAccount>>(stringResult);
+            var result = JsonConvert.DeserializeObject<PaginatedResponseModel<BankAccount>>(stringResult);
 
             return result;
         }

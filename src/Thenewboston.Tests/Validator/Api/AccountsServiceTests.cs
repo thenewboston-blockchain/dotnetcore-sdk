@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Moq;
 using Newtonsoft.Json;
+using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
 using Thenewboston.Validator.Api;
 using Thenewboston.Validator.Models;
@@ -24,8 +25,8 @@ namespace Thenewboston.Tests.Validator.Api
 
                 var accounts = await service.GetAccountsAsync();
 
-                Assert.Equal(2, accounts.Count());
-                Assert.Equal("9eca00a5-d925-454c-a8d6-ecbb26ec2f76", accounts.ElementAt(0).Id);
+                Assert.Equal(2, accounts.Count);
+                Assert.Equal("9eca00a5-d925-454c-a8d6-ecbb26ec2f76", accounts.Results.ElementAt(0).Id);
             }
         }
 
@@ -59,8 +60,12 @@ namespace Thenewboston.Tests.Validator.Api
         {
             var requestSender = new Mock<IHttpRequestSender>();
 
-            var listResult = new List<ValidatorAccount>
+            var listResult = new PaginatedResponseModel<ValidatorAccount>()
             {
+                Count = 2,
+                Next = string.Empty,
+                Previous = string.Empty,
+                Results = new List<ValidatorAccount>(){
                 new ValidatorAccount
                 {
                     Id = "9eca00a5-d925-454c-a8d6-ecbb26ec2f76",
@@ -75,6 +80,7 @@ namespace Thenewboston.Tests.Validator.Api
                     Balance = "175.0000000000000000",
                     BalanceLock = "484b3176c63d5f37d808404af1a12c4b9649cd6f6769f35bdf5a816133623fbc"
                 }
+                 }
             };
 
             var getAllResponse = new HttpResponseMessage(System.Net.HttpStatusCode.OK);
@@ -84,7 +90,7 @@ namespace Thenewboston.Tests.Validator.Api
             getBalanceResponse.Content = new StringContent(JsonConvert.SerializeObject(
                 new ValidatorAccountBalance
                 {
-                    Balance = listResult[0].Balance
+                    Balance = listResult.Results.ElementAt(0).Balance
                 }),
                 Encoding.UTF8,
                 "application/json");
@@ -93,7 +99,7 @@ namespace Thenewboston.Tests.Validator.Api
             getBalanceLockResponse.Content = new StringContent(JsonConvert.SerializeObject(
                 new ValidatorAccountBalanceLock
                 {
-                    BalanceLock = listResult[0].BalanceLock
+                    BalanceLock = listResult.Results.ElementAt(0).BalanceLock
                 }),
                 Encoding.UTF8,
                 "application/json");
