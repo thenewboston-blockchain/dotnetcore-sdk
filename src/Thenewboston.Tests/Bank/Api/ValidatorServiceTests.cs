@@ -67,7 +67,7 @@ namespace Thenewboston.Tests.Bank.Api
 
                 var service = BuildBankValidatorMock(expectedResponseModel);
 
-                var validators = await service.GetAllValidatorsAsync();
+                var validators = await service.GetAllValidatorsAsync(0, 10);
 
                 var expectedResponseModelStr = JsonConvert.SerializeObject(expectedResponseModel);
                 var actualResponseModelStr = JsonConvert.SerializeObject(validators);

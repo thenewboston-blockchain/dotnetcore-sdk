@@ -101,7 +101,7 @@ namespace Thenewboston.Tests.Bank
         public async void BlockReturnedAsync()
         {
             var service = BuildBlockGetMock();
-            var returnedBlock = await service.GetBlocksAsync();
+            var returnedBlock = await service.GetBlocksAsync(0, 10);
             var expectedResult = JsonConvert.SerializeObject(CreateMockBlock());
             var actualResult = JsonConvert.SerializeObject(returnedBlock);
             Assert.Equal(expectedResult, actualResult);
