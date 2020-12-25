@@ -74,7 +74,7 @@ namespace Thenewboston.Tests.Validator.Api
             IConnectedBanksService service = new ConnectedBanksService(requestSenderMock.Object);
 
             requestSenderMock
-                .Setup(x => x.GetAsync("/banks"))
+                .Setup(x => x.GetAsync(It.IsAny<string>()))
                 .ReturnsAsync(response);
 
             return service;

@@ -101,7 +101,7 @@ namespace Thenewboston.Tests.Bank.Api
             IConnectedBanksService service = new ConnectedBanksService(requestSenderMock.Object);
 
             requestSenderMock
-                .Setup(x => x.GetAsync("/banks"))
+                .Setup(x => x.GetAsync(It.IsAny<string>()))
                 .ReturnsAsync(response);
 
             return service;
