@@ -7,7 +7,7 @@ namespace Thenewboston.Validator.Api
 {
     public interface IAccountsService
     {
-        Task<PaginatedResponseModel<ValidatorAccount>> GetAccountsAsync();
+        Task<PaginatedResponseModel<ValidatorAccount>> GetAccountsAsync(int offset, int limit);
         Task<ValidatorAccountBalance> GetAccountBalanceAsync(string accountNumber);
         Task<ValidatorAccountBalanceLock> GetAccountBalanceLockAsync(string accountNumber);
     }
