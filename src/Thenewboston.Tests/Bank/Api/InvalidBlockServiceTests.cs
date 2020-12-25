@@ -33,7 +33,6 @@ namespace Thenewboston.Tests.Bank.Api
             [Fact]
             public async void GetInvalidBlockWithPageOnlyPaginationReturnedSuccessCodeandData()
             {
-                var pagination = new PaginationParams() {Page = 1};
                 var service = BuildBankInvalidServiceMock();
 
                 var invalidBankBlocks = await service.GetInvalidBankBlocksAsync();

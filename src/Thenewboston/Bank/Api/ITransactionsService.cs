@@ -7,6 +7,6 @@ namespace Thenewboston.Bank.Api
 {
     public interface ITransactionsService
     {
-        Task<PaginatedResponseModel<BankTransaction>> GetAllTransactionsAsync();
+        Task<PaginatedResponseModel<BankTransaction>> GetAllTransactionsAsync(int offset, int limit);
     }
 }

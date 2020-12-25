@@ -57,7 +57,7 @@ namespace Thenewboston.Tests.Validator.Api
 
                 var service = BuildGetBanksAsyncValidatorServiceMock(expectedResponseModel);
 
-                var banks = await service.GetBanksAsync();
+                var banks = await service.GetBanksAsync(0, 10);
 
                 var expectedResponseModelStr = JsonConvert.SerializeObject(expectedResponseModel);
                 var actualResponseModelStr = JsonConvert.SerializeObject(banks);
@@ -74,7 +74,7 @@ namespace Thenewboston.Tests.Validator.Api
             IConnectedBanksService service = new ConnectedBanksService(requestSenderMock.Object);
 
             requestSenderMock
-                .Setup(x => x.GetAsync("/banks"))
+                .Setup(x => x.GetAsync(It.IsAny<string>()))
                 .ReturnsAsync(response);
 
             return service;

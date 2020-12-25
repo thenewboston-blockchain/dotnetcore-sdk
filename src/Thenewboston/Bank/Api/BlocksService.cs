@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,9 @@ namespace Thenewboston.Bank.Api
             _requestSender = requestSender;
         }
 
-        public async Task<PaginatedResponseModel<BankBlock>> GetBlocksAsync()
+        public async Task<PaginatedResponseModel<BankBlock>> GetBlocksAsync(int offset = 0, int limit = 10)
         {
-            var response = await _requestSender.GetAsync("/blocks");
+            var response = await _requestSender.GetAsync($"/blocks?offset={offset}&limit={limit}");
 
             if (!response.IsSuccessStatusCode)
             {

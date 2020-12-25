@@ -63,7 +63,7 @@ namespace Thenewboston.Tests.Validator.Api
         public async void ConfirmationServiceReturnedAsync()
         {
             var service = BuildBankConfirmationServiceGetMock();
-            var returnedBlock = await service.GetBankConfirmationServicesAsync();
+            var returnedBlock = await service.GetBankConfirmationServicesAsync(0, 10);
             var expectedResult = JsonConvert.SerializeObject(CreateMockResponse());
             var actualResult = JsonConvert.SerializeObject(returnedBlock);
             Assert.Equal(expectedResult, actualResult);

@@ -8,7 +8,7 @@ namespace Thenewboston.Bank.Api
 {
     public interface IAccountsService
     {
-        Task<PaginatedResponseModel<BankAccount>> GetAccountsAsync();
+        Task<PaginatedResponseModel<BankAccount>> GetAccountsAsync(int offset, int limit);
         Task<BankAccount> UpdateAccountAsync(string accountNumber, RequestModel account);
     }
 }

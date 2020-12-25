@@ -20,9 +20,9 @@ namespace Thenewboston.Bank.Api
             _requestSender = requestSender;
         }
 
-        public async Task<PaginatedResponseModel<BankAccount>> GetAccountsAsync()
+        public async Task<PaginatedResponseModel<BankAccount>> GetAccountsAsync(int offset = 0, int limit = 10)
         {
-            var response = await _requestSender.GetAsync("/accounts");
+            var response = await _requestSender.GetAsync($"/accounts?offset={offset}&limit={limit}");
 
             if (!response.IsSuccessStatusCode)
             {
