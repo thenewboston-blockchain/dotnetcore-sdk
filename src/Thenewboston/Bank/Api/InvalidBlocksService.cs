@@ -19,17 +19,10 @@ namespace Thenewboston.Bank.Api
             _requestSender = requestSender;
         }
 
-        public async Task<PaginatedResponseModel<BankInvalidBlock>> GetInvalidBankBlocksAsync(PaginationParams pagination = null)
+        public async Task<PaginatedResponseModel<BankInvalidBlock>> GetInvalidBankBlocksAsync(int offset = 0, int limit = 10)
         {
-            var url = "";
+            var response = await _requestSender.GetAsync($"/invalid_blocks?offset={offset}&limit={limit}");
 
-            url = pagination switch {
-                PaginationParams p when  p.Page != null && p.Page  >0 => $"/invalid_blocks?page={p.Page}",
-                PaginationParams p when  (p.Page == null ||  p.Page  <= 0) && p.Offset >=0 && p.Limit >0 => $"/invalid_blocks?offset={p.Offset}&limit={p.Limit}",
-                PaginationParams p when (p.Page == null ||  p.Page  <= 0) && p.Offset >= 0 && (p.Limit <=0 || p.Limit is null) => $"/invalid_blocks?offset={pagination.Offset}&limit=20",
-                _ => $"/invalid_blocks?page=1"
-            };
-            var response = await _requestSender.GetAsync(url);
             if (!response.IsSuccessStatusCode)
             {
                 throw new Exception();

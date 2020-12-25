@@ -17,9 +17,11 @@ namespace Thenewboston.Validator.Api
             _requestSender = requestSender;
         }
 
-        public async Task<PaginatedResponseModel<ValidatorResponseModel>> GetAllValidatorsAsync()
+        public async Task<PaginatedResponseModel<ValidatorResponseModel>> GetAllValidatorsAsync(
+            int offset = 0,
+            int limit = 10)
         {
-            var response = await _requestSender.GetAsync("/validators");
+            var response = await _requestSender.GetAsync($"/validators?offset={offset}&limit={limit}");
 
             if (!response.IsSuccessStatusCode)
             {

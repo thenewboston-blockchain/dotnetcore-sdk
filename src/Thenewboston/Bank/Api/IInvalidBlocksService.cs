@@ -7,7 +7,7 @@ namespace Thenewboston.Bank.Api
 {
     public interface IInvalidBlocksService
     {
-        Task<PaginatedResponseModel<BankInvalidBlock>> GetInvalidBankBlocksAsync(PaginationParams pagination = default);
+        Task<PaginatedResponseModel<BankInvalidBlock>> GetInvalidBankBlocksAsync(int offset, int limit);
         Task<BankInvalidBlock> SendInvalidBlocksToBankAsync(BankInvalidBlockRequest model);
         
     }

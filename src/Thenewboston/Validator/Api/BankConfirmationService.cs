@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
-using Thenewboston.Validator.Models;
+using Thenewboston.Validator.Api.Models;
 
 namespace Thenewboston.Validator.Api
 {
@@ -16,9 +16,11 @@ namespace Thenewboston.Validator.Api
             _requestSender = requestSender;
         }
 
-        public async Task<PaginatedResponseModel<BankConfirmationServiceResponse>> GetBankConfirmationServicesAsync()
+        public async Task<PaginatedResponseModel<BankConfirmationServiceResponse>> GetBankConfirmationServicesAsync(
+            int offset = 0,
+            int limit = 10)
         {
-            var response = await _requestSender.GetAsync("/bank_confirmation_services");
+            var response = await _requestSender.GetAsync($"/bank_confirmation_services?offset={offset}&limit={limit}");
 
             if (!response.IsSuccessStatusCode)
             {

@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
 using Thenewboston.Validator.Api;
-using Thenewboston.Validator.Models;
+using Thenewboston.Validator.Api.Models;
 using Xunit;
 
 namespace Thenewboston.Tests.Validator.Api
@@ -63,7 +63,7 @@ namespace Thenewboston.Tests.Validator.Api
         public async void ConfirmationServiceReturnedAsync()
         {
             var service = BuildBankConfirmationServiceGetMock();
-            var returnedBlock = await service.GetBankConfirmationServicesAsync();
+            var returnedBlock = await service.GetBankConfirmationServicesAsync(0, 10);
             var expectedResult = JsonConvert.SerializeObject(CreateMockResponse());
             var actualResult = JsonConvert.SerializeObject(returnedBlock);
             Assert.Equal(expectedResult, actualResult);

@@ -6,6 +6,6 @@ namespace Thenewboston.Validator.Api
 {
     public interface IConnectedBanksService
     {
-        Task<PaginatedResponseModel<ValidatorBank>> GetBanksAsync();
+        Task<PaginatedResponseModel<ValidatorBank>> GetBanksAsync(int offset, int limit);
     }
 }

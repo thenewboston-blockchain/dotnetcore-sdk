@@ -7,6 +7,8 @@ namespace Thenewboston.Validator.Api
 {
     public interface IValidatorsService
     {
-        Task<PaginatedResponseModel<ValidatorResponseModel>> GetAllValidatorsAsync();
+        Task<PaginatedResponseModel<ValidatorResponseModel>> GetAllValidatorsAsync(
+            int offset,
+            int limit);
     }
 }

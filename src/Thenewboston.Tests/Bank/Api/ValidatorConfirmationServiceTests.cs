@@ -5,7 +5,7 @@ using System.Text;
 using Moq;
 using Newtonsoft.Json;
 using Thenewboston.Bank.Api;
-using Thenewboston.Bank.Models;
+using Thenewboston.Bank.Api.Models;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
 using Thenewboston.Common.Models;
@@ -86,7 +86,7 @@ namespace Thenewboston.Tests.Bank.Api
         public async void ConfirmationServiceReturnedAsync()
         {
             var service = BuildValidatorConfirmationServiceGetMock();
-            var returnedBlock = await service.GetValidatorConfirmationServicesAsync();
+            var returnedBlock = await service.GetValidatorConfirmationServicesAsync(0, 10);
             var expectedResult = JsonConvert.SerializeObject(CreateMockResponse());
             var actualResult = JsonConvert.SerializeObject(returnedBlock);
             Assert.Equal(expectedResult, actualResult);
