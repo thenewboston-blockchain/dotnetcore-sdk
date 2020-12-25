@@ -17,9 +17,9 @@ namespace Thenewboston.Bank.Api
             _requestSender = requestSender;
         }
 
-        public async Task<PaginatedResponseModel<BankTransaction>> GetAllTransactionsAsync()
+        public async Task<PaginatedResponseModel<BankTransaction>> GetAllTransactionsAsync(int offset=0, int limit=10)
         {
-            var response = await _requestSender.GetAsync("/bank_transactions");
+            var response = await _requestSender.GetAsync($"/bank_transactions?offset={offset}&limit={limit}");
             var stringResult = string.Empty;
 
             if (response.IsSuccessStatusCode)

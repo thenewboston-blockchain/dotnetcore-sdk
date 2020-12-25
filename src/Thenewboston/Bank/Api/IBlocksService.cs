@@ -8,7 +8,7 @@ namespace Thenewboston.Bank.Api
 {
     public interface IBlocksService
     {
-        public Task<PaginatedResponseModel<BankBlock>> GetBlocksAsync();
+        public Task<PaginatedResponseModel<BankBlock>> GetBlocksAsync(int offset, int limit);
         
         public Task<HttpResponseMessage> PostBlocksAsync(Thenewboston.Common.Models.Block block);
     }
