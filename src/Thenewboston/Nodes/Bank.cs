@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Thenewboston.Bank.Api;
 using Thenewboston.Bank.Models;
+using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
 
-namespace Thenewboston.Bank.AppLayer
+namespace Thenewboston.Nodes
 {
     public class Bank
     {
@@ -17,7 +16,7 @@ namespace Thenewboston.Bank.AppLayer
             _accountsService = new AccountsService(requestSender);
         }
 
-        public async Task<IEnumerable<BankAccount>> GetAccounts()
+        public async Task<PaginatedResponseModel<BankAccount>> GetAccounts()
         {
             var result = await _accountsService.GetAccountsAsync();
             return result;
