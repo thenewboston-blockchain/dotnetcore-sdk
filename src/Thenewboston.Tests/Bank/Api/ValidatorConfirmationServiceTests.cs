@@ -17,15 +17,15 @@ namespace Thenewboston.Tests.Bank.Api
     {
         #region Test Models
 
-        private PaginatedResponseModel<ValidatorConfirmationServiceResponse> CreateMockResponse()
+        private PaginatedResponseModel<Thenewboston.Bank.Api.Models.ValidatorConfirmation> CreateMockResponse()
         {
-            return new PaginatedResponseModel<ValidatorConfirmationServiceResponse>() {
+            return new PaginatedResponseModel<Thenewboston.Bank.Api.Models.ValidatorConfirmation>() {
                 Count = 1,
                 Next = string.Empty,
                 Previous = string.Empty,
                 Results =
-                    new List<ValidatorConfirmationServiceResponse>() {
-                        new ValidatorConfirmationServiceResponse() {
+                    new List<Thenewboston.Bank.Api.Models.ValidatorConfirmation>() {
+                        new Thenewboston.Bank.Api.Models.ValidatorConfirmation() {
                             Id = "be9fbc3b-d4df-43d5-9bea-9882a6dd27f6",
                             Created = DateTime.Parse("2020-10-08T02:18:07.324999Z"),
                             Modified = DateTime.Parse("2020-10-08T02:18:07.325044Z"),
@@ -64,7 +64,7 @@ namespace Thenewboston.Tests.Bank.Api
                 .Setup(s => s.GetAsync(It.IsAny<string>()))
                 .ReturnsAsync(response);
 
-            IValidatorConfirmationService service = new ValidatorConfirmationService(requestSenderMock.Object);
+            IValidatorConfirmationService service = new Thenewboston.Bank.Api.ValidatorConfirmationService(requestSenderMock.Object);
             return service;
         }
 
@@ -74,7 +74,7 @@ namespace Thenewboston.Tests.Bank.Api
             requestSenderMock.Setup(s => s.PostAsync(It.IsAny<string>(), It.IsAny<HttpContent>()))
                 .ReturnsAsync(new HttpResponseMessage(System.Net.HttpStatusCode.Created));
 
-            IValidatorConfirmationService service = new ValidatorConfirmationService(requestSenderMock.Object);
+            IValidatorConfirmationService service = new Thenewboston.Bank.Api.ValidatorConfirmationService(requestSenderMock.Object);
             return service;
         }
 

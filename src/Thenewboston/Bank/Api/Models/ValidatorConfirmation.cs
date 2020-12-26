@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Thenewboston.Bank.Api.Models
 {
-    public class ValidatorConfirmationServiceResponse
+    public class ValidatorConfirmation
     {
         [JsonProperty(PropertyName = "id")] 
         
