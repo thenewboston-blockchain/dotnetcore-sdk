@@ -18,7 +18,7 @@ namespace Thenewboston.Bank.Api
             _requestSender = requestSender;
         }
 
-        public async Task<PaginatedResponseModel<BankNodeResponse>> GetBanksAsync(int offset=0, int limit=10)
+        public async Task<PaginatedResponseModel<BankNode>> GetBanksAsync(int offset=0, int limit=10)
         {
             var response = await _requestSender.GetAsync($"/banks?offset={offset}&limit={limit}");
 
@@ -36,12 +36,12 @@ namespace Thenewboston.Bank.Api
                 throw new Exception();
             }
 
-            var result = JsonConvert.DeserializeObject<PaginatedResponseModel<BankNodeResponse>>(stringResult);
+            var result = JsonConvert.DeserializeObject<PaginatedResponseModel<BankNode>>(stringResult);
 
             return result;
         }
 
-        public async Task<BankNodeResponse> UpdateBankAsync(string nodeIdentifier, RequestModel payload)
+        public async Task<BankNode> UpdateBankAsync(string nodeIdentifier, RequestModel payload)
         {
             var jsonPayload = JsonConvert.SerializeObject(payload);
             var httpContent = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
@@ -62,7 +62,7 @@ namespace Thenewboston.Bank.Api
                 throw new Exception();
             }
 
-            var result = JsonConvert.DeserializeObject<BankNodeResponse>(stringResult);
+            var result = JsonConvert.DeserializeObject<BankNode>(stringResult);
 
             return result;
         }

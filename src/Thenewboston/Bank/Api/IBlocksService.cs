@@ -10,6 +10,6 @@ namespace Thenewboston.Bank.Api
     {
         public Task<PaginatedResponseModel<BankBlock>> GetBlocksAsync(int offset, int limit);
         
-        public Task<HttpResponseMessage> PostBlocksAsync(Thenewboston.Common.Models.Block block);
+        public Task<BankBlock> PostBlocksAsync(Thenewboston.Common.Models.Block block);
     }
 }

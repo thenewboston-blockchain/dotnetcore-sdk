@@ -43,7 +43,7 @@ namespace Thenewboston.Bank.Api
             return result;
         }
 
-        public async Task<HttpResponseMessage> PostBlocksAsync(Thenewboston.Common.Models.Block block)
+        public async Task<BankBlock> PostBlocksAsync(Thenewboston.Common.Models.Block block)
         {
             var httpContent = new StringContent(JsonConvert.SerializeObject(block), Encoding.UTF8, "application/json"); 
             var request = await _requestSender.PostAsync("/blocks", httpContent); 
@@ -54,8 +54,10 @@ namespace Thenewboston.Bank.Api
                 throw new Exception(); 
             }
 
-            var response = new HttpResponseMessage(System.Net.HttpStatusCode.Created);
-            return response; 
+            var response = await request.Content.ReadAsStringAsync();
+            var responseContent = JsonConvert.DeserializeObject<BankBlock>(response);
+
+            return responseContent;
         }
     }
 }

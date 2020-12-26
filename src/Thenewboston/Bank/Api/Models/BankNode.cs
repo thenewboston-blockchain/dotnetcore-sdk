@@ -5,7 +5,7 @@ using Thenewboston.Common.Models;
 
 namespace Thenewboston.Bank.Api.Models
 {
-    public class BankNodeResponse
+    public class BankNode
     {
         [JsonProperty(PropertyName = "account_number")]
         public string AccountNumber { get; set; }

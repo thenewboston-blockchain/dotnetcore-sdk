@@ -21,7 +21,7 @@ namespace Thenewboston.Bank.Api
             _requestSender = requestSender;
         }
 
-        public async Task<PaginatedResponseModel<ValidatorConfirmationServiceResponse>> GetValidatorConfirmationServicesAsync(
+        public async Task<PaginatedResponseModel<Models.ValidatorConfirmation>> GetValidatorConfirmationServicesAsync(
             int offset = 0,
             int limit = 10)
         {
@@ -42,7 +42,7 @@ namespace Thenewboston.Bank.Api
             }
 
             var result =
-                JsonConvert.DeserializeObject<PaginatedResponseModel<ValidatorConfirmationServiceResponse>>(
+                JsonConvert.DeserializeObject<PaginatedResponseModel<Models.ValidatorConfirmation>>(
                     stringResponse);
 
             return result;

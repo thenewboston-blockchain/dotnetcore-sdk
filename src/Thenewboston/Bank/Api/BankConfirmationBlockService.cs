@@ -23,9 +23,10 @@ namespace Thenewboston.Bank.Api
         /// Retrieves confirmation blocks from the connected bank via paginated <see cref="PaginatedResponseModel"/>
         /// </summary>
         /// <returns><see cref="PaginatedResponseModel"/> containing all bank to client confirmation blocks</returns>
-        public async Task<PaginatedResponseModel<BankConfirmationBlockResponse>> GetAllBankConfiramtionBlocksAsync()
+        public async Task<PaginatedResponseModel<BankConfirmationBlock>> GetAllBankConfiramtionBlocksAsync(
+            int offset = 0, int limit = 10)
         {
-            var response = await _requestSender.GetAsync("/confirmation_blocks"); 
+            var response = await _requestSender.GetAsync($"/confirmation_blocks?offset={offset}&limit={limit}"); 
             
             if(!response.IsSuccessStatusCode)
             {
@@ -41,11 +42,12 @@ namespace Thenewboston.Bank.Api
                 throw new Exception(); 
             }
 
-            var result = JsonConvert.DeserializeObject<PaginatedResponseModel<BankConfirmationBlockResponse>>(stringResponse);
+            var result = JsonConvert.DeserializeObject<PaginatedResponseModel<BankConfirmationBlock>>(stringResponse);
 
             return result; 
         }
 
+        /// NOTE: Not implemented in the app layer as this is functionality for the validator, therefore not needed in any apps.
         /// <summary>
         /// Provides a facility for a confirmation validator to post a new <see cref="ConfirmationBlock"/> to the 
         /// receiving bank. 

@@ -24,17 +24,17 @@ namespace Thenewboston.Tests.Bank.Api
 
         #region Test Models 
 
-        private PaginatedResponseModel<BankConfirmationBlockResponse> CreateMockBankConfirmationBlock()
+        private PaginatedResponseModel<BankConfirmationBlock> CreateMockBankConfirmationBlock()
         {
-            return new PaginatedResponseModel<BankConfirmationBlockResponse>()
+            return new PaginatedResponseModel<BankConfirmationBlock>()
             {
                 Count = 1,
                 Next = string.Empty,
                 Previous = string.Empty,
                 Results =
-                    new List<BankConfirmationBlockResponse>()
+                    new List<BankConfirmationBlock>()
                     {
-                        new BankConfirmationBlockResponse
+                        new BankConfirmationBlock
                         {
                             Id = "e7c5c2e0-8ed1-4eb3-abd8-97fa2e5ca8db",
                             CreatedDate = DateTime.Parse("2020-10-08T02:18:07.908635Z"),

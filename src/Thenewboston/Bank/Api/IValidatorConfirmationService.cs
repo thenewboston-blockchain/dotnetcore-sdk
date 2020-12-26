@@ -8,7 +8,7 @@ namespace Thenewboston.Bank.Api
 {
     public interface IValidatorConfirmationService
     {
-        public Task<PaginatedResponseModel<ValidatorConfirmationServiceResponse>> GetValidatorConfirmationServicesAsync(
+        public Task<PaginatedResponseModel<Models.ValidatorConfirmation>> GetValidatorConfirmationServicesAsync(
             int offset,
             int limit);
 

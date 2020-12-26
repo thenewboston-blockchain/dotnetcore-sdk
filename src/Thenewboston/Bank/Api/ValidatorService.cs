@@ -42,6 +42,8 @@ namespace Thenewboston.Bank.Api
             return result;
         }
 
+
+        //TODO: remove this
         public async Task<BankValidator> PatchValidatorAsync(string nodeIdentifier, RequestModel trust)
         {
             var jsonTrust = JsonConvert.SerializeObject(trust);
