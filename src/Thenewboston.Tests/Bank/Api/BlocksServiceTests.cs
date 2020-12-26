@@ -107,13 +107,14 @@ namespace Thenewboston.Tests.Bank
             Assert.Equal(expectedResult, actualResult);
         }
 
-        [Fact]
-        public async void BlockPostedAsync()
-        {
-            var service = BuildBlockPostMock();
-            var response = await service.PostBlocksAsync(CreateMockBlockMessage());
-            Assert.NotNull(response);
-        }
+        //TODO :remove
+        //[Fact]
+        //public async void BlockPostedAsync()
+        //{
+        //    var service = BuildBlockPostMock();
+        //    var response = await service.PostBlocksAsync(CreateMockBlockMessage());
+        //    Assert.NotNull(response);
+        //}
 
         #endregion
     }
