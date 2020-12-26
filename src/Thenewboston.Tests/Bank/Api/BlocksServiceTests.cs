@@ -112,7 +112,7 @@ namespace Thenewboston.Tests.Bank
         {
             var service = BuildBlockPostMock();
             var response = await service.PostBlocksAsync(CreateMockBlockMessage());
-            Assert.True(response.StatusCode == System.Net.HttpStatusCode.Created);
+            Assert.NotNull(response);
         }
 
         #endregion
