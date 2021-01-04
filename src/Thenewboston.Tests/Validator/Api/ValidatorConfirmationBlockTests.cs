@@ -184,7 +184,7 @@ namespace Thenewboston.Tests.Validator.Api
         public async Task TestConfirmationBlockPostNew()
         {
             var service = BuildValidatorConfirmationBlockServicePostMock();
-            var result = await service.PostConfiramtionBlockAsync(CreateMockConfirmationBlock());
+            var result = await service.PostConfirmationBlockAsync(CreateMockConfirmationBlock());
             var expectedResult = CreateMockConfirmationBlockResponse();
             Assert.Equal(expectedResult.BlockIdentifier, result.BlockIdentifier);
             Assert.Equal(expectedResult.Block.Signature, result.Block.Signature);
@@ -197,7 +197,7 @@ namespace Thenewboston.Tests.Validator.Api
         public async Task TestGetQueuedConfirmationBlockByID()
         {
             var service = BuildValidatorConfirmationBlockServiceGetMock();
-            var result = await service.GetQueuedConfiramtionBlockAsync(string.Empty);
+            var result = await service.GetQueuedConfirmationBlockAsync(string.Empty);
             var expectedResult = CreateMockConfirmationBlock();
             Assert.Equal(expectedResult.BlockIdentifier, result.BlockIdentifier);
             Assert.Equal(expectedResult.NodeIdentifier, result.NodeIdentifier);
