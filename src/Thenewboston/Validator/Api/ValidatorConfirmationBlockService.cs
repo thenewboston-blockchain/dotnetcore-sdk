@@ -23,7 +23,7 @@ namespace Thenewboston.Validator.Api
         /// </summary>
         /// <param name="confirmationBlockMessage">Message containing the validator's confirmation block info</param>
         /// <returns></returns>
-        public async Task<ConfirmationBlockResponse> PostConfiramtionBlockAsync(ConfirmationBlock confirmationBlockMessage)
+        public async Task<ConfirmationBlockResponse> PostConfirmationBlockAsync(ConfirmationBlock confirmationBlockMessage)
         {
             var jsonConfirmationBlockMessage = JsonConvert.SerializeObject(confirmationBlockMessage);
             var httpContent = new StringContent(jsonConfirmationBlockMessage, Encoding.UTF8, "application/json");
@@ -56,7 +56,7 @@ namespace Thenewboston.Validator.Api
         /// <param name="blockIdentifier">The identifier for the requested block</param>
         /// <param name="_requestSender"></param>
         /// <returns></returns>
-        public async Task<ConfirmationBlock> GetQueuedConfiramtionBlockAsync(string blockIdentifier)
+        public async Task<ConfirmationBlock> GetQueuedConfirmationBlockAsync(string blockIdentifier)
         {
             var response = await _requestSender.GetAsync($"/confirmation_block/{blockIdentifier}/queued");
 
