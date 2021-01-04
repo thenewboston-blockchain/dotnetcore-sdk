@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +7,6 @@ using Thenewboston.Bank.Api.Models;
 using Thenewboston.Bank.Models;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
-using Thenewboston.Common.Models;
 
 namespace Thenewboston.Bank.Api
 {
@@ -21,9 +19,9 @@ namespace Thenewboston.Bank.Api
             _requestSender = requestSender;
         }
 
-        public async Task<PaginatedResponseModel> GetAllValidatorsAsync()
+        public async Task<PaginatedResponseModel<BankValidator>> GetAllValidatorsAsync(int offset = 0, int limit = 10)
         {
-            var response = await _requestSender.GetAsync("/validators");
+            var response = await _requestSender.GetAsync($"/validators?offset={offset}&limit={limit}");
 
             if (!response.IsSuccessStatusCode)
             {
@@ -39,11 +37,13 @@ namespace Thenewboston.Bank.Api
                 throw new Exception();
             }
 
-            var result = JsonConvert.DeserializeObject<PaginatedResponseModel>(stringResult);
+            var result = JsonConvert.DeserializeObject<PaginatedResponseModel<BankValidator>>(stringResult);
 
             return result;
         }
 
+
+        //TODO: remove this
         public async Task<BankValidator> PatchValidatorAsync(string nodeIdentifier, RequestModel trust)
         {
             var jsonTrust = JsonConvert.SerializeObject(trust);

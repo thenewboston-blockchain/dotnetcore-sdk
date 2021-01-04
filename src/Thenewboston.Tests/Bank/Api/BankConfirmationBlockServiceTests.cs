@@ -5,6 +5,7 @@ using System.Text;
 using Moq;
 using Newtonsoft.Json;
 using Thenewboston.Bank.Api;
+using Thenewboston.Bank.Api.Models;
 using Thenewboston.Bank.Models;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
@@ -23,17 +24,17 @@ namespace Thenewboston.Tests.Bank.Api
 
         #region Test Models 
 
-        private PaginatedResponseModel CreateMockBankConfirmationBlock()
+        private PaginatedResponseModel<BankConfirmationBlock> CreateMockBankConfirmationBlock()
         {
-            return new PaginatedResponseModel()
+            return new PaginatedResponseModel<BankConfirmationBlock>()
             {
                 Count = 1,
                 Next = string.Empty,
                 Previous = string.Empty,
                 Results =
-                    new List<BankConfirmationBlockResponse>()
+                    new List<BankConfirmationBlock>()
                     {
-                        new BankConfirmationBlockResponse
+                        new BankConfirmationBlock
                         {
                             Id = "e7c5c2e0-8ed1-4eb3-abd8-97fa2e5ca8db",
                             CreatedDate = DateTime.Parse("2020-10-08T02:18:07.908635Z"),
@@ -143,10 +144,10 @@ namespace Thenewboston.Tests.Bank.Api
         #region Tests
 
         [Fact]
-        public async void BankConfiramtionBlockReturnedAsync()
+        public async void BankConfirmationBlockReturnedAsync()
         {
             var service = BuildConfirmationBlockGetMock();
-            var returnedBankConfirmationBlock = await service.GetAllBankConfiramtionBlocksAsync();
+            var returnedBankConfirmationBlock = await service.GetAllBankConfiramtionBlocksAsync(0, 10);
             var expectedResult = JsonConvert.SerializeObject(CreateMockBankConfirmationBlock());
             var actualResult = JsonConvert.SerializeObject(returnedBankConfirmationBlock);
             Assert.Equal(expectedResult, actualResult); 

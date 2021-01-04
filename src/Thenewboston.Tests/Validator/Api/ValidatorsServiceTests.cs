@@ -10,6 +10,7 @@ using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
 using Thenewboston.Common.Models;
 using Thenewboston.Validator.Api;
+using Thenewboston.Validator.Api.Models;
 using Thenewboston.Validator.Models;
 using Xunit;
 
@@ -23,7 +24,7 @@ namespace Thenewboston.Tests.Validator.Api
             [Fact]
             public async void ListOfValidatorsIsReturned()
             {
-                PaginatedResponseModel expectedResponseModel = new PaginatedResponseModel
+                var expectedResponseModel = new PaginatedResponseModel<ValidatorResponseModel>
                 {
                     Count = 2,
                     Next = null,
@@ -66,7 +67,7 @@ namespace Thenewboston.Tests.Validator.Api
 
                 var service = BuildBankValidatorMock(expectedResponseModel);
 
-                var validators = await service.GetAllValidatorsAsync();
+                var validators = await service.GetAllValidatorsAsync(0, 10);
 
                 var expectedResponseModelStr = JsonConvert.SerializeObject(expectedResponseModel);
                 var actualResponseModelStr = JsonConvert.SerializeObject(validators);
@@ -75,7 +76,7 @@ namespace Thenewboston.Tests.Validator.Api
             }
         }
 
-        public static IValidatorsService BuildBankValidatorMock(PaginatedResponseModel expectedResponseModel)
+        public static IValidatorsService BuildBankValidatorMock(PaginatedResponseModel<ValidatorResponseModel> expectedResponseModel)
         {
             var requestSender = new Mock<IHttpRequestSender>();
 

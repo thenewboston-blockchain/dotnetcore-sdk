@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Net;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Thenewboston.Bank.Models;
+using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
 
 namespace Thenewboston.Bank.Api
@@ -17,9 +17,11 @@ namespace Thenewboston.Bank.Api
             _requestSender = requestSender;
         }
 
-        public async Task<IEnumerable<BankTransaction>> GetAllTransactionsAsync()
+        public async Task<PaginatedResponseModel<BankTransaction>> GetAllTransactionsAsync(
+            int offset = 0,
+            int limit = 10)
         {
-            var response = await _requestSender.GetAsync("/bank_transactions");
+            var response = await _requestSender.GetAsync($"/bank_transactions?offset={offset}&limit={limit}");
             var stringResult = string.Empty;
 
             if (response.IsSuccessStatusCode)
@@ -37,7 +39,7 @@ namespace Thenewboston.Bank.Api
                 throw new Exception();
             }
 
-            var result = JsonConvert.DeserializeObject<IEnumerable<BankTransaction>>(stringResult);
+            var result = JsonConvert.DeserializeObject<PaginatedResponseModel<BankTransaction>>(stringResult);
 
             return result;
         }

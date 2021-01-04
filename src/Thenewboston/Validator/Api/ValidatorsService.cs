@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
-using Thenewboston.Common.Models;
+using Thenewboston.Validator.Api.Models;
+using Thenewboston.Validator.Models;
 
 namespace Thenewboston.Validator.Api
 {
@@ -18,9 +17,11 @@ namespace Thenewboston.Validator.Api
             _requestSender = requestSender;
         }
 
-        public async Task<PaginatedResponseModel> GetAllValidatorsAsync()
+        public async Task<PaginatedResponseModel<ValidatorResponseModel>> GetAllValidatorsAsync(
+            int offset = 0,
+            int limit = 10)
         {
-            var response = await _requestSender.GetAsync("/validators");
+            var response = await _requestSender.GetAsync($"/validators?offset={offset}&limit={limit}");
 
             if (!response.IsSuccessStatusCode)
             {
@@ -36,7 +37,7 @@ namespace Thenewboston.Validator.Api
                 throw new Exception();
             }
 
-            var result = JsonConvert.DeserializeObject<PaginatedResponseModel>(stringResult);
+            var result = JsonConvert.DeserializeObject<PaginatedResponseModel<ValidatorResponseModel>>(stringResult);
 
             return result;
         }

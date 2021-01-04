@@ -5,8 +5,8 @@ namespace Thenewboston.Validator.Api
 {
     public interface IValidatorConfirmationBlockService
     {
-        Task<ConfirmationBlockResponse> PostConfiramtionBlockAsync(ConfirmationBlock confirmationBlockMessage);
-        Task<ConfirmationBlock> GetQueuedConfiramtionBlockAsync(string blockIdentifier);
+        Task<ConfirmationBlockResponse> PostConfirmationBlockAsync(ConfirmationBlock confirmationBlockMessage);
+        Task<ConfirmationBlock> GetQueuedConfirmationBlockAsync(string blockIdentifier);
         Task<ConfirmationBlock> GetValidConfirmationBlockAsync(string blockIdentifier); 
     }
 }

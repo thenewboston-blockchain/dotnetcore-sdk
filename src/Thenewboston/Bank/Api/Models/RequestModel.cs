@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Thenewboston.Bank.Api.Models
+﻿namespace Thenewboston.Bank.Api.Models
 {
     public class RequestModel
     {

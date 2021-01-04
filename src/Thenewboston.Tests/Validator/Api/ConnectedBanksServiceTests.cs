@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Text;
 using Moq;
 using Newtonsoft.Json;
+using Thenewboston.Bank.Models;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
 using Thenewboston.Validator.Api;
@@ -19,7 +20,7 @@ namespace Thenewboston.Tests.Validator.Api
             [Fact]
             public async void ListOfBanksIsReturned()
             {
-                PaginatedResponseModel expectedResponseModel = new PaginatedResponseModel
+                var expectedResponseModel = new PaginatedResponseModel<ValidatorBank>
                 {
                     Count = 2,
                     Next = null,
@@ -56,7 +57,7 @@ namespace Thenewboston.Tests.Validator.Api
 
                 var service = BuildGetBanksAsyncValidatorServiceMock(expectedResponseModel);
 
-                var banks = await service.GetBanksAsync();
+                var banks = await service.GetBanksAsync(0, 10);
 
                 var expectedResponseModelStr = JsonConvert.SerializeObject(expectedResponseModel);
                 var actualResponseModelStr = JsonConvert.SerializeObject(banks);
@@ -64,7 +65,7 @@ namespace Thenewboston.Tests.Validator.Api
             }
         }
 
-        public static IConnectedBanksService BuildGetBanksAsyncValidatorServiceMock(PaginatedResponseModel expectedResponseModel)
+        public static IConnectedBanksService BuildGetBanksAsyncValidatorServiceMock(PaginatedResponseModel<ValidatorBank> expectedResponseModel)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             response.Content = new StringContent(JsonConvert.SerializeObject(expectedResponseModel), Encoding.UTF8, "application/json");
@@ -73,7 +74,7 @@ namespace Thenewboston.Tests.Validator.Api
             IConnectedBanksService service = new ConnectedBanksService(requestSenderMock.Object);
 
             requestSenderMock
-                .Setup(x => x.GetAsync("/banks"))
+                .Setup(x => x.GetAsync(It.IsAny<string>()))
                 .ReturnsAsync(response);
 
             return service;

@@ -1,9 +1,9 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace Thenewboston.Bank.Models
+namespace Thenewboston.Bank.Api.Models
 {
-    public class BankConfirmationBlockResponse
+    public class BankConfirmationBlock
     {
         [JsonProperty(PropertyName = "Id")]
         public string Id { get; set; }

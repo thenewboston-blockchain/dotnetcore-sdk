@@ -6,7 +6,7 @@ namespace Thenewboston.Bank.Api.Models
 {
     public interface IConnectedBanksService
     {
-        Task<PaginatedResponseModel> GetBanksAsync();
-        Task<BankResponseModel> UpdateBankAsync(string nodeIdentifier, RequestModel payload);
+        Task<PaginatedResponseModel<BankNode>> GetBanksAsync(int offset, int limit);
+        Task<BankNode> UpdateBankAsync(string nodeIdentifier, RequestModel payload);
     }
 }
