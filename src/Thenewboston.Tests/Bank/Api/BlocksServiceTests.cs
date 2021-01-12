@@ -48,14 +48,14 @@ namespace Thenewboston.Tests.Bank
                     BalanceKey = "ce51f0d9facaa7d3e69657429dd3f961ce70077a8efb53dcda508c7c0a19d2e3",
                     Transactions = new List<BlockTransaction>() {
                         new BlockTransaction() {
-                            Amount = "12.5",
+                            Amount = 12.5,
                             Recipient = "484b3176c63d5f37d808404af1a12c4b9649cd6f6769f35bdf5a816133623fbc"
                         },
                         new BlockTransaction() {
-                            Amount = "1", Recipient = "5e12967707909e62b2bb2036c209085a784fabbc3deccefee70052b6181c8ed8"
+                            Amount = 1, Recipient = "5e12967707909e62b2bb2036c209085a784fabbc3deccefee70052b6181c8ed8"
                         },
                         new BlockTransaction() {
-                            Amount = "4", Recipient = "ad1f8845c6a1abb6011a2a434a079a087c460657aad54329a84b406dce8bf314"
+                            Amount = 4, Recipient = "ad1f8845c6a1abb6011a2a434a079a087c460657aad54329a84b406dce8bf314"
                         }
                     }
                 },

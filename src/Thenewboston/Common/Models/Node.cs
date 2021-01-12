@@ -20,7 +20,7 @@ namespace Thenewboston.Common.Models
         public string IpAddress { get; set; }
 
         [JsonProperty(PropertyName = "port")]
-        public string Port { get; set; }   
+        public int? Port { get; set; }   
 
         [JsonProperty(PropertyName = "version")]
         public string Version { get; set; }

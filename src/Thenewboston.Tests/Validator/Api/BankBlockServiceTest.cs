@@ -25,15 +25,15 @@ namespace Thenewboston.Tests.Validator.Api
                         Transactions = new List<BlockTransaction>()
                         {
                             new BlockTransaction() {
-                                Amount = "4.125",
+                                Amount = 4.125,
                                 Recipient = "484b3176c63d5f37d808404af1a12c4b9649cd6f6769f35bdf5a816133623fbc"
                             },
                             new BlockTransaction() {
-                                Amount = "1",
+                                Amount = 1,
                                 Recipient = "5e12967707909e62b2bb2036c209085a784fabbc3deccefee70052b6181c8ed8"
                             },
                             new BlockTransaction() {
-                                Amount = "4",
+                                Amount = 4,
                                 Recipient = "ad1f8845c6a1abb6011a2a434a079a087c460657aad54329a84b406dce8bf314"
                             }
                         }

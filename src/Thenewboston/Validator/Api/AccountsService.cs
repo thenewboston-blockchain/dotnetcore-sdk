@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
+using Thenewboston.Common.Math;
 using Thenewboston.Validator.Models;
 
 namespace Thenewboston.Validator.Api
@@ -35,7 +36,11 @@ namespace Thenewboston.Validator.Api
                 throw new Exception(); 
             }
 
-            var result = JsonConvert.DeserializeObject<PaginatedResponseModel<ValidatorAccount>>(stringResult);
+            var settings = new JsonSerializerSettings();
+            settings.FloatParseHandling = FloatParseHandling.Decimal;
+            settings.Converters.Add(new JsonBigDecimalConverter());
+
+            var result = JsonConvert.DeserializeObject<PaginatedResponseModel<ValidatorAccount>>(stringResult, settings);
 
             return result;
         }
@@ -58,7 +63,11 @@ namespace Thenewboston.Validator.Api
                 throw new Exception();
             }
 
-            var result = JsonConvert.DeserializeObject<ValidatorAccountBalance>(stringResult);
+            var settings = new JsonSerializerSettings();
+            settings.FloatParseHandling = FloatParseHandling.Decimal;
+            settings.Converters.Add(new JsonBigDecimalConverter());
+
+            var result = JsonConvert.DeserializeObject<ValidatorAccountBalance>(stringResult, settings);
 
             return result;
         }
