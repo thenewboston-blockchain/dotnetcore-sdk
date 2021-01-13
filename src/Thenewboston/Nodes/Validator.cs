@@ -12,10 +12,7 @@ namespace Thenewboston.Nodes
     public class Validator
     {
         private readonly IAccountsService _accountsService;
-        private readonly IBankBlockService _bankBlockService; // need to ask someone
-        private readonly IBankConfirmationService _bankConfirmationService;
         private readonly IConfigService _configService;
-        private readonly IConnectedBanksService _connectedBanksService;
         private readonly IValidatorConfirmationBlockService _validatorConfirmationBlockService;
         private readonly IValidatorsService _validatorsService;
 
@@ -23,10 +20,7 @@ namespace Thenewboston.Nodes
         {
             var requestSender = new SimpleHttpRequestSender($"{ip}:{port}");
             _accountsService = new AccountsService(requestSender);
-            _bankBlockService = new BankBlockService(requestSender);
-            _bankConfirmationService = new BankConfirmationService(requestSender);
             _configService = new ConfigService(requestSender);
-            _connectedBanksService = new ConnectedBanksService(requestSender);
             _validatorConfirmationBlockService = new ValidatorConfirmationBlockService(requestSender);
             _validatorsService = new ValidatorsService(requestSender);
         }
@@ -49,23 +43,10 @@ namespace Thenewboston.Nodes
             return result;
         }
 
-        public async Task<IEnumerable<BankConfirmationServiceResponse>> GetBankConfirmationServices(int offset,
-            int limit)
-        {
-            var result = await _bankConfirmationService.GetBankConfirmationServicesAsync(offset, limit);
-            return result.Results;
-        }
-
         public async Task<ValidatorConfig> GetValidatorConfig()
         {
             var result = await _configService.GetValidatorConfigAsync();
             return result;
-        }
-
-        public async Task<IEnumerable<ValidatorBank>> GetBanks(int offset, int limit)
-        {
-            var result = await _connectedBanksService.GetBanksAsync(offset, limit);
-            return result.Results;
         }
 
         public async Task<ConfirmationBlock> GetQueuedConfirmationBlock(string blockIdentifier)
