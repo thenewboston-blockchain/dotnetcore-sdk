@@ -31,23 +31,26 @@ For projects that support adding a Nuget reference you may paste the following i
 ## SDK References
 
 1.  Bank
-    - AccountsService
-    - BankConfirmationBlockService
-    - BlocksService
-    - ConfigService
-    - ConnectedBankService
-    - InvalidBlocksService
-    - TransactionsService
-    - UpgradeNoticeService
-    - ValidatorService
-2.  ## Common
+    * AccountsService
+    * BankConfirmationBlockService
+    * BlocksService
+    * ConfigService
+    * ConnectedBankService
+    * InvalidBlocksService
+    * TransactionsService
+    * UpgradeNoticeService
+    * ValidatorService
+
+2.  Common
+	* 
+	
 3.  Validator
-    - AccountsService
-    - ConfigService
-    - PrimaryValidatorUpdatedService
-    - TransactionService
-    - ValidatorService
-    - ValidatorConfirmationBlockService
+    * AccountsService
+    * ConfigService
+    * PrimaryValidatorUpdatedService
+    * TransactionService
+    * ValidatorService
+    * ValidatorConfirmationBlockService
 
 ## Namespace Index
 
@@ -78,25 +81,15 @@ Description
      Thenewboston.Bank.Models
 
 ## AccountsService
-
 ## BankConfirmationBLockService
-
 ## BlocksService
-
 ## ConfigService
-
 ## ConfirmationService
-
 ## ConnectedBankService
-
 ## ConnectionRequestService
-
 ## InvalidBlocksService
-
 ## TransactionService
-
 ## UpgradeNoticeService
-
 ## ValidatorService
 
 ## Bank Exceptions (BNK)
@@ -132,17 +125,11 @@ Description
     Thenewboston.Validator.Models
 
 ## AccountsService
-
 ## ConfigService
-
 ## ConfirmationService
-
 ## PrimaryValidatorUpdatedService
-
 ## TransactionService
-
 ## ValidatorService
-
 ## ValidatorConfirmationBlockService
 
 ## Validator Exceptions (VLD)
