@@ -41,12 +41,10 @@ For projects that support  adding  a Nuget reference you may paste the following
 	 * 
  3. Validator
 	 * AccountsService
-	 * BankBlockService
 	 * ConfigService
 	 * ConnectedBankService
 	 * PrimaryValidatorUpdatedService
 	 * TransactionService
-	 * UpgradeRequestService
 	 * ValidatorService
 	 * ValidatorConfirmationBlockService
 
@@ -109,14 +107,11 @@ Description
 	Thenewboston.Validator.Api
 	Thenewboston.Validator.Models
 ## AccountsService
-## BankBlockService
 ## ConfigService
 ## ConfirmationService
 ## ConnectedBankService
-## ConnectionRequestService
 ## PrimaryValidatorUpdatedService
 ## TransactionService
-## UpgradeRequestService
 ## ValidatorService
 ## ValidatorConfirmationBlockService
 ## Validator Exceptions (VLD)
