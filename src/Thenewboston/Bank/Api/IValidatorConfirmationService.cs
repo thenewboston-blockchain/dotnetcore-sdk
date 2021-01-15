@@ -11,8 +11,5 @@ namespace Thenewboston.Bank.Api
         public Task<PaginatedResponseModel<Models.ValidatorConfirmation>> GetValidatorConfirmationServicesAsync(
             int offset,
             int limit);
-
-        public Task<HttpResponseMessage> PostValidatorConfirmationServiceAsync(
-            BankValidatorConfirmationService service);
     }
 }

@@ -46,27 +46,5 @@ namespace Thenewboston.Bank.Api
 
             return result; 
         }
-
-        /// NOTE: Not implemented in the app layer as this is functionality for the validator, therefore not needed in any apps.
-        /// <summary>
-        /// Provides a facility for a confirmation validator to post a new <see cref="ConfirmationBlock"/> to the 
-        /// receiving bank. 
-        /// </summary>
-        /// <param name="confirmationBlock"></param>
-        /// <returns><see cref="HttpResponseMessage"/></returns>
-        public async Task<HttpResponseMessage> PostConfirmationBlockAsync(ConfirmationBlock confirmationBlock)
-        {
-            var httpContent = new StringContent(JsonConvert.SerializeObject(confirmationBlock), Encoding.UTF8, "application/json"); 
-            var request = await _requestSender.PostAsync("/confirmation_blocks", httpContent); 
-
-            if(!request.IsSuccessStatusCode)
-            {
-                // TODO: Create specific exception
-                throw new Exception(); 
-            }
-
-            var response = new HttpResponseMessage(System.Net.HttpStatusCode.Created);
-            return response; 
-        }
     }
 }
