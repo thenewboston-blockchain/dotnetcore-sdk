@@ -34,7 +34,6 @@ For projects that support  adding  a Nuget reference you may paste the following
 	 * ConnectedBankService
 	 * InvalidBlocksService
 	 * TransactionsService
-	 * UpgradeNoticeService
 	 * ValidatorService
 	 
  2. Common
@@ -75,10 +74,8 @@ Description
 ##  ConfigService
 ##  ConfirmationService
 ##  ConnectedBankService
-##  ConnectionRequestService
 ##  InvalidBlocksService
 ##  TransactionService
-##  UpgradeNoticeService
 ##  ValidatorService
 ##  Bank Exceptions (BNK)
 
