@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,15 +32,5 @@ namespace Thenewboston.Bank.Api
             return JsonConvert.DeserializeObject<PaginatedResponseModel<BankInvalidBlock>>(responseContent);
         }
 
-        public async Task<BankInvalidBlock> SendInvalidBlocksToBankAsync(BankInvalidBlockRequest model)
-        {
-            var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
-            var response = await _requestSender.PostAsync("/invalid_blocks", content);
-            if (!response.IsSuccessStatusCode)
-                throw new Exception("Error Sending Invalid Block to Bank");
-
-            var responseContent = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<BankInvalidBlock>(responseContent);
-        }
     }
 }

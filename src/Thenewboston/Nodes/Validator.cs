@@ -12,7 +12,6 @@ namespace Thenewboston.Nodes
     public class Validator
     {
         private readonly IAccountsService _accountsService;
-        private readonly IBankBlockService _bankBlockService; // need to ask someone
         private readonly IBankConfirmationService _bankConfirmationService;
         private readonly IConfigService _configService;
         private readonly IConnectedBanksService _connectedBanksService;
@@ -23,7 +22,6 @@ namespace Thenewboston.Nodes
         {
             var requestSender = new SimpleHttpRequestSender($"{ip}:{port}");
             _accountsService = new AccountsService(requestSender);
-            _bankBlockService = new BankBlockService(requestSender);
             _bankConfirmationService = new BankConfirmationService(requestSender);
             _configService = new ConfigService(requestSender);
             _connectedBanksService = new ConnectedBanksService(requestSender);

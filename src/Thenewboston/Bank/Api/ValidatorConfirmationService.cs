@@ -47,22 +47,5 @@ namespace Thenewboston.Bank.Api
 
             return result;
         }
-
-        public async Task<HttpResponseMessage> PostValidatorConfirmationServiceAsync(
-            BankValidatorConfirmationService service)
-        {
-            var httpContent =
-                new StringContent(JsonConvert.SerializeObject(service), Encoding.UTF8, "application/json");
-            var request = await _requestSender.PostAsync("/blocks", httpContent);
-
-            if (!request.IsSuccessStatusCode)
-            {
-                // TODO: Create specific exception
-                throw new Exception();
-            }
-
-            var response = new HttpResponseMessage(System.Net.HttpStatusCode.Created);
-            return response;
-        }
     }
 }

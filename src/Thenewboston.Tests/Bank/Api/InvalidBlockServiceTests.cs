@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -41,18 +41,7 @@ namespace Thenewboston.Tests.Bank.Api
                 Assert.Equal("2bcd53c5-19f9-4226-ab04-3dfb17c3a1fe", invalidBankBlocks.Results.ElementAt(0).Id);
             }
         }
-        public class SendInvalidBankBlocksAsync
-        {
-            [Fact]
-            public async void SendInvalidBlockReturnedSuccessCodeandData()
-            {
-                var service = BuildBankInvalidServiceMock();
-                var invalidBankBlocks = await service.SendInvalidBlocksToBankAsync( new BankInvalidBlockRequest());
 
-                Assert.Equal("2bcd53c5-19f9-4226-ab04-3dfb17c3a1fe", invalidBankBlocks.Id);
-            }
-        }
-        
         private static List<BankInvalidBlock> INVALID_BLOCK_TEST_DATA = new List<BankInvalidBlock>
         {
             new BankInvalidBlock
@@ -99,13 +88,7 @@ namespace Thenewboston.Tests.Bank.Api
                 .Setup(x => x.GetAsync(It.IsAny<string>()))
                 .Returns(Task.FromResult(getAllResponse));
 
-            var postResponse = new HttpResponseMessage(System.Net.HttpStatusCode.OK);
-            postResponse.Content = new StringContent(JsonConvert.SerializeObject(INVALID_BLOCK_TEST_DATA.First()), Encoding.UTF8, "application/json");
-
             //TODO Setup for more Scenarios
-            requestSender
-                .Setup(x => x.PostAsync( "/invalid_blocks", It.IsAny<StringContent>()))
-                .Returns(Task.FromResult(postResponse));
             requestSender
                 .Setup(x => x.GetAsync(It.IsRegex(@"\/invalid_blocks\?offset=[0-9]*&limit=[0-9]*")))
                 .Returns(Task.FromResult(getAllResponse)); requestSender
