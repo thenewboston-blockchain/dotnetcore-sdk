@@ -421,6 +421,11 @@ namespace System.Numerics
 			return this._scale == other._scale && this._unscaledValue == other._unscaledValue;
 		}
 
-		#endregion
-	}
+        #endregion
+
+        public static BigDecimal Parse(string str)
+        {
+            return new BigDecimal(Convert.ToDouble(str));
+        }
+    }
 }
