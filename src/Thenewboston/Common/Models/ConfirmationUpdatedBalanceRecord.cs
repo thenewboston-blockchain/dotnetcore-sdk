@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Numerics;
+using Newtonsoft.Json;
 
 namespace Thenewboston.Common.Models
 {
@@ -9,7 +10,7 @@ namespace Thenewboston.Common.Models
         public string AccountNumber { get; set; }
 
         [JsonProperty(PropertyName ="balance")]
-        public string Balance { get; set; }
+        public BigDecimal Balance { get; set; }
 
         [JsonProperty(PropertyName ="balance_lock")]
         public string BalanceLock { get; set; }

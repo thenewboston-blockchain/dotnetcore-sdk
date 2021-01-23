@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using Thenewboston.Bank.Models;
 using Thenewboston.Common.Api.Models;
 using Thenewboston.Common.Http;
+using Thenewboston.Common.Math;
 
 namespace Thenewboston.Bank.Api
 {
@@ -39,7 +40,11 @@ namespace Thenewboston.Bank.Api
                 throw new Exception();
             }
 
-            var result = JsonConvert.DeserializeObject<PaginatedResponseModel<BankTransaction>>(stringResult);
+            var settings = new JsonSerializerSettings();
+            settings.FloatParseHandling = FloatParseHandling.Decimal;
+            settings.Converters.Add(new JsonBigDecimalConverter());
+
+            var result = JsonConvert.DeserializeObject<PaginatedResponseModel<BankTransaction>>(stringResult, settings);
 
             return result;
         }

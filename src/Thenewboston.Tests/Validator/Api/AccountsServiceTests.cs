@@ -39,7 +39,7 @@ namespace Thenewboston.Tests.Validator.Api
 
                 var balance = await service.GetAccountBalanceAsync("9eca00a5-d925-454c-a8d6-ecbb26ec2f76");
 
-                Assert.Equal("4294967051.0000000000000000", balance.Balance);
+                Assert.Equal(4294967051.0000000000000000, balance.Balance);
             }
         }
 
@@ -70,14 +70,14 @@ namespace Thenewboston.Tests.Validator.Api
                 {
                     Id = "9eca00a5-d925-454c-a8d6-ecbb26ec2f76",
                     AccountNumber = "4d2ec91f37bc553bc538e91195669b666e26b2ea3e4e31507e38102a758d4f86",
-                    Balance = "4294967051.0000000000000000",
+                    Balance = 4294967051.0000000000000000,
                     BalanceLock = "21cfd80a31930e801e97d34e3f00a7d9b5c01b2fb531a5ac14cd59d10ab446c8"
                 },
                  new ValidatorAccount
                 {
                     Id = "ae4d43b0-5c34-4e56-8266-0e3531268815",
                     AccountNumber = "a29baa6ba36f6db707f8f8dacfa82d5e8a28fa616e8cc96cf6d7790f551d79f2",
-                    Balance = "175.0000000000000000",
+                    Balance = 175.0000000000000000,
                     BalanceLock = "484b3176c63d5f37d808404af1a12c4b9649cd6f6769f35bdf5a816133623fbc"
                 }
                  }

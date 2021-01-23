@@ -37,18 +37,6 @@ namespace Thenewboston.Tests.Bank.Api
             };
         }
 
-        private BankValidatorConfirmationService CreateMockValidatorConfirmationServiceMessage()
-        {
-            return new BankValidatorConfirmationService() {
-                Message = new ValidatorConfirmationServiceMessage() {
-                    End = DateTime.Parse("2020-07-09T22:10:25Z"), Start = DateTime.Parse("2020-08-09T22:10:25Z")
-                },
-                NodeIdentifier = "59479a31c3b91d96bb7a0b3e07f18d4bf301f1bb0bde05f8d36d9611dcbe7cbf",
-                Signature =
-                    "2a4b90e97566d4c46cb302e8297841ebe0b9f5ce6f30217721dedb4bfdc48944d14f46032e33246b6a60a942bc48fd9541057b7b1c635d4346436deab9f4bf01"
-            };
-        }
-
         #endregion
 
         #region Mock Service
@@ -68,16 +56,6 @@ namespace Thenewboston.Tests.Bank.Api
             return service;
         }
 
-        private IValidatorConfirmationService BuildValidatorConfirmationServicePostMock()
-        {
-            var requestSenderMock = new Mock<IHttpRequestSender>();
-            requestSenderMock.Setup(s => s.PostAsync(It.IsAny<string>(), It.IsAny<HttpContent>()))
-                .ReturnsAsync(new HttpResponseMessage(System.Net.HttpStatusCode.Created));
-
-            IValidatorConfirmationService service = new Thenewboston.Bank.Api.ValidatorConfirmationService(requestSenderMock.Object);
-            return service;
-        }
-
         #endregion
 
         #region Tests
@@ -90,15 +68,6 @@ namespace Thenewboston.Tests.Bank.Api
             var expectedResult = JsonConvert.SerializeObject(CreateMockResponse());
             var actualResult = JsonConvert.SerializeObject(returnedBlock);
             Assert.Equal(expectedResult, actualResult);
-        }
-
-        [Fact]
-        public async void BlockPostedAsync()
-        {
-            var service = BuildValidatorConfirmationServicePostMock();
-            var response =
-                await service.PostValidatorConfirmationServiceAsync(CreateMockValidatorConfirmationServiceMessage());
-            Assert.True(response.StatusCode == System.Net.HttpStatusCode.Created);
         }
 
         #endregion
