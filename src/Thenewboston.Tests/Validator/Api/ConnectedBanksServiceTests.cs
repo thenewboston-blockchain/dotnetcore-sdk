@@ -65,7 +65,7 @@ namespace Thenewboston.Tests.Validator.Api
             }
         }
 
-        public static IConnectedBanksService BuildGetBanksAsyncValidatorServiceMock(PaginatedResponseModel<ValidatorBank> expectedResponseModel)
+        internal static IConnectedBanksService BuildGetBanksAsyncValidatorServiceMock(PaginatedResponseModel<ValidatorBank> expectedResponseModel)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             response.Content = new StringContent(JsonConvert.SerializeObject(expectedResponseModel), Encoding.UTF8, "application/json");

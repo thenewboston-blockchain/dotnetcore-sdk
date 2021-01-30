@@ -4,7 +4,6 @@ using Newtonsoft.Json;
 namespace Thenewboston.Common.Models
 {
     public class ConfirmationUpdatedBalanceRecord
-
     {
         [JsonProperty(PropertyName ="account_number")]
         public string AccountNumber { get; set; }

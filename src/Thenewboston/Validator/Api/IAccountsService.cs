@@ -5,7 +5,7 @@ using Thenewboston.Validator.Models;
 
 namespace Thenewboston.Validator.Api
 {
-    public interface IAccountsService
+    internal interface IAccountsService
     {
         Task<PaginatedResponseModel<ValidatorAccount>> GetAccountsAsync(int offset, int limit);
         Task<ValidatorAccountBalance> GetAccountBalanceAsync(string accountNumber);

@@ -11,7 +11,7 @@ using Thenewboston.Common.Http;
 
 namespace Thenewboston.Bank.Api
 {
-    public class BlocksService : IBlocksService
+    internal class BlocksService : IBlocksService
     {
         private IHttpRequestSender _requestSender;
 

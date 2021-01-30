@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Thenewboston.Common.Models
 {
-    public class ConfirmationBlockResponse
+    internal class ConfirmationBlockResponse
     {
         [JsonProperty(PropertyName ="block")]
         public ConfirmationBankBlock Block { get; set; }

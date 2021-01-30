@@ -4,7 +4,7 @@ using Thenewboston.Validator.Models;
 
 namespace Thenewboston.Validator.Api
 {
-    public interface IPrimaryValidatorUpdatedService
+    internal interface IPrimaryValidatorUpdatedService
     {
         Task<HttpResponseMessage> PostPrimaryValidatorUpdatedAsync(PrimaryValidatorUpdatedModel validatorUpdatedModel); 
     }

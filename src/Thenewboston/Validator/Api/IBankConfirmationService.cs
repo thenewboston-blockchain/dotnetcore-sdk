@@ -4,7 +4,7 @@ using Thenewboston.Validator.Api.Models;
 
 namespace Thenewboston.Validator.Api
 {
-    public interface IBankConfirmationService
+    internal interface IBankConfirmationService
     {
         public Task<PaginatedResponseModel<BankConfirmationServiceResponse>> GetBankConfirmationServicesAsync(
             int offset,

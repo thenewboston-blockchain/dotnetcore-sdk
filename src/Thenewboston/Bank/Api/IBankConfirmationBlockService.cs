@@ -6,7 +6,7 @@ using Thenewboston.Common.Models;
 
 namespace Thenewboston.Bank.Api
 {
-    public interface IBankConfirmationBlockService
+    internal interface IBankConfirmationBlockService
     {
         public Task<PaginatedResponseModel<BankConfirmationBlock>> GetAllBankConfiramtionBlocksAsync(int offset, int limit);
     }

@@ -5,7 +5,7 @@ using Thenewboston.Validator.Models;
 
 namespace Thenewboston.Validator.Api
 {
-    public interface IValidatorsService
+    internal interface IValidatorsService
     {
         Task<PaginatedResponseModel<ValidatorResponseModel>> GetAllValidatorsAsync(
             int offset,

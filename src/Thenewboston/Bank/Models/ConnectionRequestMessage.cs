@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace Thenewboston.Bank.Models
 {
-    public class ConnectionRequestMessage
+    internal class ConnectionRequestMessage
     {
         [JsonProperty(PropertyName = "ip_address")]
         public string IpAddress { get; set; }

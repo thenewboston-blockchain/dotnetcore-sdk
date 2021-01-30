@@ -2,7 +2,7 @@
 
 namespace Thenewboston.Validator.Models
 {
-    public class PrimaryValidatorUpdatedModel
+    internal class PrimaryValidatorUpdatedModel
     {
         [JsonProperty(PropertyName ="message")]
         public PrimaryValidatorUpdatedMessage Message { get; set; }

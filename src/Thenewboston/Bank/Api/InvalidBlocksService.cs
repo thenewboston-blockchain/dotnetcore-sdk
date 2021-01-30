@@ -10,7 +10,7 @@ using Thenewboston.Common.Http;
 
 namespace Thenewboston.Bank.Api
 {
-    public class InvalidBlocksService : IInvalidBlocksService
+    internal class InvalidBlocksService : IInvalidBlocksService
     {
         private readonly IHttpRequestSender _requestSender;
 

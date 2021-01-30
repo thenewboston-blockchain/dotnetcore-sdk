@@ -6,7 +6,7 @@ using Thenewboston.Common.Http;
 
 namespace Thenewboston.Bank.Api.Models
 {
-    public class ConfigService : IConfigService
+    internal class ConfigService : IConfigService
     {
         private readonly IHttpRequestSender _requestSender;
 

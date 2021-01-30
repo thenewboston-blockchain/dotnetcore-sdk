@@ -11,7 +11,7 @@ using Thenewboston.Common.Http;
 
 namespace Thenewboston.Bank.Api
 {
-    public class AccountsService : IAccountsService
+    internal class AccountsService : IAccountsService
     {
         private IHttpRequestSender _requestSender;
 

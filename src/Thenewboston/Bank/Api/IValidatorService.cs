@@ -5,7 +5,7 @@ using Thenewboston.Common.Api.Models;
 
 namespace Thenewboston.Bank.Api
 {
-    public interface IValidatorService
+    internal interface IValidatorService
     {
         Task<PaginatedResponseModel<BankValidator>> GetAllValidatorsAsync(int offset, int limit);
 

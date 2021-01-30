@@ -7,7 +7,7 @@ using Thenewboston.Validator.Api.Models;
 
 namespace Thenewboston.Validator.Api
 {
-    public class BankConfirmationService : IBankConfirmationService
+    internal class BankConfirmationService : IBankConfirmationService
     {
         private readonly IHttpRequestSender _requestSender;
 

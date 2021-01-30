@@ -7,7 +7,7 @@ using Thenewboston.Validator.Models;
 
 namespace Thenewboston.Validator.Api
 {
-    public class ConnectedBanksService : IConnectedBanksService
+    internal class ConnectedBanksService : IConnectedBanksService
     {
         private readonly IHttpRequestSender _requestSender;
 

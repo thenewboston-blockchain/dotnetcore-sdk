@@ -56,7 +56,7 @@ namespace Thenewboston.Tests.Validator.Api
             }
         }
 
-        public static AccountsService BuildValidatorServiceMock()
+        internal static AccountsService BuildValidatorServiceMock()
         {
             var requestSender = new Mock<IHttpRequestSender>();
 

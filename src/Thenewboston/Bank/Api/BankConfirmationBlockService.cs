@@ -10,7 +10,7 @@ using Thenewboston.Common.Models;
 
 namespace Thenewboston.Bank.Api
 {
-    public class BankConfirmationBlockService : IBankConfirmationBlockService
+    internal class BankConfirmationBlockService : IBankConfirmationBlockService
     {
         private readonly IHttpRequestSender _requestSender;
 

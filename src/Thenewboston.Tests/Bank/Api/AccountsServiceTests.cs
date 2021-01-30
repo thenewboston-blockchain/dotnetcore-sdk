@@ -46,7 +46,7 @@ namespace Thenewboston.Tests.Bank.Api
             }
         }
 
-        public static AccountsService BuildAccountsServiceMock()
+        internal static AccountsService BuildAccountsServiceMock()
         {
             var requestSender = new Mock<IHttpRequestSender>();
 

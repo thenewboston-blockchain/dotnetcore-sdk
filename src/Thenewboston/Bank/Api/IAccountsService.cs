@@ -6,7 +6,7 @@ using Thenewboston.Common.Api.Models;
 
 namespace Thenewboston.Bank.Api
 {
-    public interface IAccountsService
+    internal interface IAccountsService
     {
         Task<PaginatedResponseModel<BankAccount>> GetAccountsAsync(int offset, int limit);
         Task<BankAccount> UpdateAccountAsync(string accountNumber, RequestModel account);
