@@ -9,7 +9,7 @@ using Thenewboston.Common.Models;
 
 namespace Thenewboston.Validator.Api
 {
-    public class ValidatorConfirmationBlockService : IValidatorConfirmationBlockService
+    internal class ValidatorConfirmationBlockService : IValidatorConfirmationBlockService
     {
         private readonly IHttpRequestSender _requestSender;
 

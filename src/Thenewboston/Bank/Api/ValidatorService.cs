@@ -10,7 +10,7 @@ using Thenewboston.Common.Http;
 
 namespace Thenewboston.Bank.Api
 {
-    public class ValidatorService : IValidatorService
+    internal class ValidatorService : IValidatorService
     {
         private readonly IHttpRequestSender _requestSender;
 

@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace Thenewboston.Validator.Models
 {
-    public class ConnectionRequest
+    internal class ConnectionRequest
     {
         [JsonProperty(PropertyName = "message")]
         public ConnectionRequestMessage Message { get; set; }

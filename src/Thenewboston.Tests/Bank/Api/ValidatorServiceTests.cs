@@ -116,7 +116,7 @@ namespace Thenewboston.Tests.Bank.Api
             }
         }
 
-        public static IValidatorService BuildBankValidatorMock(PaginatedResponseModel<BankValidator> expectedResponseModel)
+        internal static IValidatorService BuildBankValidatorMock(PaginatedResponseModel<BankValidator> expectedResponseModel)
         {
             var requestSender = new Mock<IHttpRequestSender>();
 
@@ -131,7 +131,7 @@ namespace Thenewboston.Tests.Bank.Api
             return validatorService;
         }
 
-        public static IValidatorService BuildBankValidatorMock(BankValidator expectedResponseValidator, string newTrust)
+        internal static IValidatorService BuildBankValidatorMock(BankValidator expectedResponseValidator, string newTrust)
         {
             var requestSender = new Mock<IHttpRequestSender>();
 

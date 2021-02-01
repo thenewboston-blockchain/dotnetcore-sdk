@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Thenewboston.Common.Models
 {
-    public class ValidatorConfirmationServiceMessage
+    internal class ValidatorConfirmationServiceMessage
     {
         [JsonProperty(PropertyName = "start")] 
         

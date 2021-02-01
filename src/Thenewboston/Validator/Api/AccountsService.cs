@@ -9,7 +9,7 @@ using Thenewboston.Validator.Models;
 
 namespace Thenewboston.Validator.Api
 {
-    public class AccountsService : IAccountsService
+    internal class AccountsService : IAccountsService
     {
         private readonly IHttpRequestSender _requestSender;
 

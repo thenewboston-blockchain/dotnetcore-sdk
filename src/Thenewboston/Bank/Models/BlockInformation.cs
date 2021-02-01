@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Thenewboston.Bank.Models
 {
-    public class BlockInformation
+    internal class BlockInformation
     {
         public string Id { get; set; }
 

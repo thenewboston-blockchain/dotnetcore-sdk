@@ -30,7 +30,7 @@ namespace Thenewboston.Tests.Bank.Api
             }
         }
 
-        public static TransactionsService BuildBankTransactionMock()
+        internal static TransactionsService BuildBankTransactionMock()
         {
             var requestSender = new Mock<IHttpRequestSender>();
 

@@ -6,7 +6,7 @@ using Thenewboston.Validator.Models;
 
 namespace Thenewboston.Validator.Api
 {
-    public class ConfigService : IConfigService
+    internal class ConfigService : IConfigService
     {
         private readonly IHttpRequestSender _requestSender;
 

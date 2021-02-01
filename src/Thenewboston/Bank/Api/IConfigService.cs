@@ -3,7 +3,7 @@ using Thenewboston.Bank.Models;
 
 namespace Thenewboston.Bank.Api
 {
-    public interface IConfigService
+    internal interface IConfigService
     {
         Task<BankConfig> GetBankConfigAsync();
     }

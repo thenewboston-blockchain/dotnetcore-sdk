@@ -4,7 +4,7 @@ using Thenewboston.Validator.Models;
 
 namespace Thenewboston.Validator.Api
 {
-    public interface IConnectedBanksService
+    internal interface IConnectedBanksService
     {
         Task<PaginatedResponseModel<ValidatorBank>> GetBanksAsync(int offset, int limit);
     }

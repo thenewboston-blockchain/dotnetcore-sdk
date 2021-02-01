@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Thenewboston.Bank.Models
 {
-    public  class BankInvalidBlock
+    internal class BankInvalidBlock
     {
         [JsonProperty("id")]
         public string Id { get; set; }

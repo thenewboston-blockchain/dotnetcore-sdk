@@ -38,7 +38,7 @@ namespace Thenewboston.Tests.Validator.Api
 
         #region Primary Validator Updated Mock Services 
 
-        public IPrimaryValidatorUpdatedService BuildMockPrimaryValidatorUpdatesServiceApproveUpgrade()
+        internal IPrimaryValidatorUpdatedService BuildMockPrimaryValidatorUpdatesServiceApproveUpgrade()
         {
             var httpRequest = new Mock<IHttpRequestSender>();
             var returnContent = new HttpResponseMessage(System.Net.HttpStatusCode.OK);
@@ -50,7 +50,7 @@ namespace Thenewboston.Tests.Validator.Api
             return service; 
         }
 
-        public IPrimaryValidatorUpdatedService BuildMockPrimaryValidatorUpdatesServiceRejectUpgrade()
+        internal IPrimaryValidatorUpdatedService BuildMockPrimaryValidatorUpdatesServiceRejectUpgrade()
         {
             var httpRequest = new Mock<IHttpRequestSender>();
             var returnContent = new HttpResponseMessage(System.Net.HttpStatusCode.BadRequest);

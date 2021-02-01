@@ -2,7 +2,7 @@
 
 namespace Thenewboston.Validator.Api.Models
 {
-    public class UpgradeRequestMessage
+    internal class UpgradeRequestMessage
     {
         [JsonProperty(PropertyName = "validator_node_identifier")]
         public string ValidatorNodeIdentifier { get; set; }

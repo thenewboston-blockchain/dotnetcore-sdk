@@ -1,6 +1,6 @@
 ﻿namespace Thenewboston.Bank.Api.Models
 {
-    public class RequestModel
+    internal class RequestModel
     {
         public Message Message { get; set; }
 

@@ -6,7 +6,7 @@ using Thenewboston.Common.Models;
 
 namespace Thenewboston.Bank.Api
 {
-    public interface IValidatorConfirmationService
+    internal interface IValidatorConfirmationService
     {
         public Task<PaginatedResponseModel<Models.ValidatorConfirmation>> GetValidatorConfirmationServicesAsync(
             int offset,

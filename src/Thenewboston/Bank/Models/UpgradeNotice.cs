@@ -2,7 +2,7 @@
 
 namespace Thenewboston.Bank.Models
 {
-    public class UpgradeNotice
+    internal class UpgradeNotice
     {
         [JsonProperty(PropertyName ="message")]
         public UpgradeNoticeMessage Message { get; set; }

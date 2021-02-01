@@ -9,7 +9,7 @@ using Thenewboston.Common.Math;
 
 namespace Thenewboston.Bank.Api
 {
-    public class TransactionsService : ITransactionsService
+    internal class TransactionsService : ITransactionsService
     {
         private IHttpRequestSender _requestSender;
 

@@ -92,7 +92,7 @@ namespace Thenewboston.Tests.Bank.Api
             }
         }
 
-        public static IConnectedBanksService BuildGetBanksAsyncConnectedBanksServiceMock(PaginatedResponseModel<BankNode> expectedResponseModel)
+        internal static IConnectedBanksService BuildGetBanksAsyncConnectedBanksServiceMock(PaginatedResponseModel<BankNode> expectedResponseModel)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             response.Content = new StringContent(JsonConvert.SerializeObject(expectedResponseModel), Encoding.UTF8, "application/json");
@@ -107,7 +107,7 @@ namespace Thenewboston.Tests.Bank.Api
             return service;
         }
 
-        public static IConnectedBanksService BuildUpdateBankAsyncConnectedBanksServiceMock(BankNode expectedBank)
+        internal static IConnectedBanksService BuildUpdateBankAsyncConnectedBanksServiceMock(BankNode expectedBank)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             response.Content = new StringContent(JsonConvert.SerializeObject(expectedBank), Encoding.UTF8, "application/json");

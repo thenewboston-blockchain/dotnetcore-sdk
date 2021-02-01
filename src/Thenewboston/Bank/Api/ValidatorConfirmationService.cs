@@ -12,7 +12,7 @@ using Block = Thenewboston.Common.Models.Block;
 
 namespace Thenewboston.Bank.Api
 {
-    public class ValidatorConfirmationService : IValidatorConfirmationService
+    internal class ValidatorConfirmationService : IValidatorConfirmationService
     {
         private readonly IHttpRequestSender _requestSender;
 

@@ -5,7 +5,7 @@ using Thenewboston.Common.Api.Models;
 
 namespace Thenewboston.Bank.Api
 {
-    public interface ITransactionsService
+    internal interface ITransactionsService
     {
         Task<PaginatedResponseModel<BankTransaction>> GetAllTransactionsAsync(int offset, int limit);
     }

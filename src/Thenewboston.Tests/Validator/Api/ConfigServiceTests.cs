@@ -88,7 +88,7 @@ namespace Thenewboston.Tests.Validator.Api
             }
         }
 
-        public static IConfigService BuildValidatorConfigServiceMock(ValidatorConfig expectedConfig)
+        internal static IConfigService BuildValidatorConfigServiceMock(ValidatorConfig expectedConfig)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             response.Content = new StringContent(JsonConvert.SerializeObject(expectedConfig), Encoding.UTF8, "application/json");

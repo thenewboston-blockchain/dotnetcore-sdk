@@ -3,7 +3,7 @@ using Thenewboston.Common.Models;
 
 namespace Thenewboston.Validator.Models
 {
-    public class ValidatorBankBlock
+    internal class ValidatorBankBlock
     {
         [JsonProperty(PropertyName ="block")]
         public Block BankBlock { get; set; }

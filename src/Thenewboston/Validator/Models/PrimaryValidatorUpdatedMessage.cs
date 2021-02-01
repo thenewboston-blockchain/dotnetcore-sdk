@@ -2,7 +2,7 @@
 
 namespace Thenewboston.Validator.Models
 {
-    public class PrimaryValidatorUpdatedMessage
+    internal class PrimaryValidatorUpdatedMessage
     {
         [JsonProperty(PropertyName ="ip_address")]
         public string IPAddress { get; set; }

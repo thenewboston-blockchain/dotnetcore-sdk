@@ -9,7 +9,7 @@ using Thenewboston.Common.Http;
 
 namespace Thenewboston.Bank.Api
 {
-    public class ConnectedBanksService : IConnectedBanksService
+    internal class ConnectedBanksService : IConnectedBanksService
     {
         private readonly IHttpRequestSender _requestSender;
 

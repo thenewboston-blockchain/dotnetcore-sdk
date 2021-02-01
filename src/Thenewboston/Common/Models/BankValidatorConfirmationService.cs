@@ -3,7 +3,7 @@ using Thenewboston.Bank.Api;
 
 namespace Thenewboston.Common.Models
 {
-    public class BankValidatorConfirmationService
+    internal class BankValidatorConfirmationService
     {
         [JsonProperty(PropertyName ="message")]
         public ValidatorConfirmationServiceMessage Message { get; set; }

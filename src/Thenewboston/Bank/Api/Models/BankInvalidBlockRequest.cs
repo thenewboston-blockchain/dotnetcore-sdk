@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Thenewboston.Bank.Api.Models
 {
-    public class BankInvalidBlockRequest
+    internal class BankInvalidBlockRequest
     {
         [JsonProperty("message")]
         public InvalidBlockBankRequestMessage Message { get; set; }
@@ -14,8 +14,8 @@ namespace Thenewboston.Bank.Api.Models
         [JsonProperty("signature")]
         public string Signature { get; set; }
     }
-    
-    public class InvalidBlockBankRequestMessage
+
+    internal class InvalidBlockBankRequestMessage
     {
         [JsonProperty("block")]
         public Block Block { get; set; }
@@ -27,7 +27,7 @@ namespace Thenewboston.Bank.Api.Models
         public string PrimaryValidatorNodeIdentifier { get; set; }
     }
 
-    public class Block
+    internal class Block
     {
         [JsonProperty("account_number")]
         public string AccountNumber { get; set; }
@@ -39,7 +39,7 @@ namespace Thenewboston.Bank.Api.Models
         public string Signature { get; set; }
     }
 
-    public class BlockMessage
+    internal class BlockMessage
     {
         [JsonProperty("balance_key")]
         public string BalanceKey { get; set; }
@@ -48,7 +48,7 @@ namespace Thenewboston.Bank.Api.Models
         public BlockTransactions[] Txs { get; set; }
     }
 
-    public class BlockTransactions
+    internal class BlockTransactions
     {
         [JsonProperty("amount")]
         public BigDecimal Amount { get; set; }

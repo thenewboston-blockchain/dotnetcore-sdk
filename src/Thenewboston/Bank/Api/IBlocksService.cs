@@ -6,7 +6,7 @@ using Thenewboston.Common.Api.Models;
 
 namespace Thenewboston.Bank.Api
 {
-    public interface IBlocksService
+    internal interface IBlocksService
     {
         public Task<PaginatedResponseModel<BankBlock>> GetBlocksAsync(int offset, int limit);
         
